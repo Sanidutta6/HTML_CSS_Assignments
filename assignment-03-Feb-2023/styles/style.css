@@ -39,7 +39,6 @@ header::before {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    text-align: center;
 }
 
 .navbar ul {
@@ -48,7 +47,7 @@ header::before {
 }
 
 .navbar ul li {
-    padding: 0 1rem;
+    padding: 1rem 2rem;
     text-align: center;
     justify-content: center;
 }
