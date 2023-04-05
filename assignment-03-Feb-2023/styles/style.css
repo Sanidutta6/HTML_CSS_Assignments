@@ -7,7 +7,7 @@
 
 body {
     color: rgb(253,194,51);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Righteous', cursive;
 }
 
 button {
@@ -17,9 +17,11 @@ button {
     padding: 0.8rem 2.5rem;
     font-size: 21px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 header::before {
+    background: url('../assets/background.png') no-repeat center center/cover;
     content: '';
     position: absolute;
     top: 0;
@@ -27,13 +29,46 @@ header::before {
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-image: url('../assets/background.png');
 }
 
 .nav-container {
-    padding: 0.5rem 1.5rem;
+    padding: 3rem 1.5rem;
 }
 
 .navbar {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    padding: 0 1rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.navbar ul a {
+    text-decoration: none;
+    color: rgb(253,194,51);
+    cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 90px;
+    font-weight: 400;
+    padding: 0.5rem 15rem 3rem 15rem;
+    line-height: 6rem;
 }
