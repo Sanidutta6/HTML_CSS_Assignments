@@ -1,0 +1,39 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: rgb(253,194,51);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+    color: rgb(255, 255, 255);
+    background-color: rgb(254,81,95);
+    border: none;
+    padding: 0.8rem 2.5rem;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-image: url('../assets/background.png');
+}
+
+.nav-container {
+    padding: 0.5rem 1.5rem;
+}
+
+.navbar {
+    display: flex;
+}
