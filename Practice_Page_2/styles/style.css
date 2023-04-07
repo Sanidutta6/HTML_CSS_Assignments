@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", Arial, Helvetica, sans-serif;
+}
+
+header {
+    padding: 1rem 5rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar .brand-logo {
+    color: rgb(10,41,112);
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 66%;
+}
+
+.navbar .nav-menu ul {
+    list-style: none;
+    display: flex;
+    margin: auto 0;
+}
+
+.navbar .nav-menu ul li {
+    padding-left: 2rem;
+    font-weight: 500;
+    color: rgb(15,50,137);
+}
+
+.navbar .nav-menu ul li:hover {
+    color: rgb(65,84,241);
+}
+
+button {
+    color: rgb(255, 255, 255);
+    background-color: rgb(65,84,241);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.hero {
+    padding: 0 5rem;
+}
+
+.get-started {
+    display: flex;
+}
+
+.get-started .left {
+    padding-top: 3rem;
+    width: 50%;
+}
+
+.get-started .left h1 {
+    color: rgb(10,41,112);
+    font-size: 50px;
+    font-weight: 500;
+    padding-bottom: 2rem;
+}
+
+.get-started .left p {
+    color: rgb(68,68,68);
+    font-size: 26px;
+    padding-bottom: 2rem;
+}
+
+.get-started .right {
+    width: 50%;
+    text-align: center;
+}
