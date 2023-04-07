@@ -1,0 +1,86 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.container {
+    padding: 0 5rem;
+}
+
+button {
+    padding: 1rem 2rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(58, 40, 193);
+    border: none;
+    border-radius: 9px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+.nav-menu {
+    width: 40%;
+    margin: auto 0;
+    display: flex;
+    justify-content: space-between;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    padding-left: 2rem;
+    margin: auto 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(52,61,72);
+}
+
+.hero {
+    display: flex;
+}
+
+.hero .left {
+    width: 50%;
+}
+
+.hero .left h1 {
+    font-size: 60px;
+    font-weight: 700;
+    padding-bottom: 2rem;
+}
+
+.hero .left p {
+    padding-bottom: 2rem;
+    font-size: 21px;
+    color: rgb(52,61,72);
+    text-justify: inter-word;
+}
+
+.hero .left h1 span {
+    color: rgb(58, 40, 193);
+}
+
+.hero .left button {
+    font-size: 18px;
+}
+
+.hero .right {
+    text-align: center;
+}
+
+.hero .right img {
+    height: 100%;
+    width: 70%;
+}
