@@ -129,7 +129,7 @@
 .main-text::after {
     content: '';
     width: 5px;
-    height: 20%;
+    height: 15%;
     background: #d41b27;
     position: absolute;
     left: 2.4rem;
