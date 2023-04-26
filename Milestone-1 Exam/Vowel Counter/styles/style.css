@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+body {
+    background-image: linear-gradient(to right bottom, #feac00, #ffffff);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    /* margin: 12rem 20rem; */
+    padding: 3rem;
+    background-color: rgb(245, 245, 220);
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+.main h1 {
+    margin-bottom: 1.5rem;
+    font-size: 42px;
+}
+
+.main form {
+    text-align: center;
+}
+
+.main #name {
+    font-size: 24px;
+    font-weight: 400;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+}
+
+.main button {
+    background-color: #feac00;
+    font-size: 21px;
+    font-weight: 500;
+    padding: 0.5rem 0.7rem;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+#showVowelCount {
+    margin: 1rem 0;
+    min-height: 1rem;
+}
