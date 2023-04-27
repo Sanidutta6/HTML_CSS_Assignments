@@ -18,7 +18,7 @@ body {
 
 #main {
     background-color: rgb(250, 235, 215);
-    padding: 2rem 1rem;
+    padding: 2rem;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 0.5rem;
     display: flex;
@@ -60,4 +60,12 @@ body {
     padding: 0.3rem 0.2rem;
     background-color: #ffffff;
     border: 2px solid rgb(0, 0, 0);
+}
+
+#divider {
+    float: left;
+    height: 17rem;
+    width: 0.2rem;
+    margin-left: 1rem;
+    background-color: black;
 }
