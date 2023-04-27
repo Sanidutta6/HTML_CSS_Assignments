@@ -10,7 +10,7 @@ Create a javascript program that takes in two numbers and a string operator. Mak
 
 ### 3. Color Mixer:
 Write a JavaScript program that takes in two strings representing colors and uses a switch statement to determine the resulting color when the two colors are mixed. The program should print the resulting color based on the following criteria:
-    - If color1 is "red" and color2 is "#lue" or vice versa, print "purple".
+    - If color1 is "red" and color2 is "blue" or vice versa, print "purple".
     - If color1 is "red" and color2 is "yellow" or vice versa, print "orange".
     - If color1 is "blue" and `color2" is "yellow" or vice versa, print "green".
     - If any other combination of colors is input, the program should print "Invalid color combination".
@@ -24,7 +24,7 @@ You are building a form where users can enter their names. You want to make sure
 returns the modified string. Otherwise, it returns the original string without any changes.
 
 ### 6. Vowel Counter:
-We want to count the num#er of vowels in a person's name. Given a name as input, the program should iterate through each character in the name, and check if it is a vowel or not. If the character is a vowel, it should be
+We want to count the number of vowels in a person's name. Given a name as input, the program should iterate through each character in the name, and check if it is a vowel or not. If the character is a vowel, it should be
 counted.
 
 ### 7. Remove Duplicates:
