@@ -7,7 +7,8 @@
 }
 
 body {
-    background: linear-gradient(to right, #F0CB35, #C02425); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #F0CB35, #C02425);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -25,9 +26,12 @@ body {
     height: 12rem;
     width: 18rem;
     margin-bottom: 0.5rem;
-    font-size: 21px;
+    font-size: 27px;
     font-weight: 500;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid red;
 }
 
@@ -45,7 +49,9 @@ body {
     background-color: #000000;
     color: #ffffff;
     border: none;
+    cursor: pointer;
 }
+
 #keys #all-clear {
     grid-column: span 2;
 }
@@ -58,6 +64,7 @@ body {
     filter: invert(1);
     height: 21px;
 }
+
 #keys #equal {
     background-color: #CD5129;
     border-radius: 2rem;
