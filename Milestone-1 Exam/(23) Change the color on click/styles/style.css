@@ -1,0 +1,26 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    font-size: 21px;
+    font-weight: 600;
+}
