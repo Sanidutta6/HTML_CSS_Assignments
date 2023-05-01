@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Navbar section */
+#navbar {
+    background-color: rgb(0, 0, 0);
+    height: 3.5rem;
+    padding: 1rem 0.55rem;
+}
+
+#navbar nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbar #company-info {
+    margin-left: 2rem;
+    display: inline-block;
+    color: rgb(254, 198, 1);
+    font-weight: 700;
+}
+
+#navbar #nav-menu {
+    margin-right: 2rem;
+}
+
+#navbar #nav-menu ul {
+    list-style: none;
+    display: flex;
+    column-gap: 3rem;
+}
+
+#navbar #nav-menu ul a {
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+/* Background image section */
+#main::before {
+    content: '';
+    background: url("../assets/background.jpg") no-repeat center center/cover;
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    /* opacity: 0.6; */
+}
+
+/* form section */
+
+#main form {
+    display: inline-block;
+    position: absolute;
+    top: 10rem;
+    right: 5rem;
+    z-index: 1;
+}
+
+#main h1 {
+    margin-bottom: 2rem;
+}
+
+#main form {
+    padding: 2rem;
+    background-color: rgb(243 65 65);
+    display: inline-block;
+}
+
+#main form .input-group {
+    margin-bottom: 1rem;
+    height: 2rem;
+}
+
+#main form .input-group label {
+    display: inline-block;
+    width: 7rem;
+    font-size: 18px;
+    padding: 0.2rem;
+}
+
+#main form .input-group input, select {
+    font-size: 18px;
+    padding: 0.2rem;
+    width: 15rem;
+}
+
+#main button {
+    background-color: rgb(231 162 37);
+    padding: 0.5rem;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+}

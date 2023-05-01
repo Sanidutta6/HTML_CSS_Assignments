@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Car Rental in Town</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Link JS -->
+    <script src="JS/index.js"></script>
+</head>
+
+<body>
+    <section id="navbar">
+        <nav>
+            <div id="company-info">
+                <h1>happyRiders</h1>
+            </div>
+            <div id="nav-menu">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Reviews</a></li>
+                    <li><a href="">Location</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section id="main">
+        <form action="">
+            <h1>Car Rental Cost Calculator</h1>
+            <div class="input-group">
+                <label for="pick-up-date">Pick Up</label>
+                <input type="date" name="pick-up-date" id="pick-up-date" />
+            </div>
+            <div class="input-group">
+                <label for="drop-off-date">Drop Off</label>
+                <input type="date" name="drop-off-date" id="drop-off-date">
+            </div>
+            <div class="input-group">
+                <label for="car-type">Car Type</label>
+                <select id="car-type" name="car-type" required>
+                    <option value="" disabled selected>Select Car Type</option>
+                    <option value="economy">Economy</option>
+                    <option value="midsize">Midsize</option>
+                    <option value="luxury">Luxury</option>
+                </select>
+            </div>
+            <div class="input-group display">
+                <label for="total-cost">Total Cost</label>
+                <input type="text" name="total-cost" id="total-cost" value="0" readonly />
+            </div>
+            <button id="calculate">Calculate</button>
+            <button id="clear">Clear</button>
+        </form>
+    </section>
+</body>
+
+</html>
