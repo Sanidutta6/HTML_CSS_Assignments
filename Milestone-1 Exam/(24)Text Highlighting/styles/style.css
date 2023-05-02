@@ -1,0 +1,89 @@
+/* CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #556271;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero {
+    background-color: #F4F6F8;
+    border-radius: 0.5rem;
+    width: 42rem;
+}
+
+#title {
+    color: #FE6A67;
+    text-align: left;
+    width: 42rem;
+    margin-bottom: 1rem;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+#hero p {
+    background: repeating-linear-gradient(135deg,
+    #F4F6F8 0px,
+    #F4F6F8 10px,
+    #FFFFFF 10px,
+    #FFFFFF 20px);
+    padding: 3rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    color: #7B8898;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 2rem;
+    overflow: auto;
+    max-height: 35rem;
+}
+
+#text-section span {
+    background-color: rgb(255, 255, 0);
+}
+
+#operations {
+    border-top: 2px solid #D3DBE5;
+    padding: 2rem 3rem;
+}
+
+#operations form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#operations input[type="number"], input[type="number"]:focus {
+    border: 3px solid #D3DBE5;
+    border-radius: 0.3rem;
+    width: 3rem;
+    padding: 0.4rem;
+    font-size: 21px;
+}
+
+#operations select, select:focus {
+    border: 3px solid #D3DBE5;
+    border-radius: 0.3rem;
+    width: 10rem;
+    padding: 0.4rem;
+    font-size: 18px;
+}
+
+#operations button {
+    padding: 0.4rem 0.5rem;
+    background-color: #FE6A67;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 21px;
+    font-weight: 700;
+}
