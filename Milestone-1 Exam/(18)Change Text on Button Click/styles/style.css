@@ -1,0 +1,49 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+#navbar {
+    background: #DA4453;
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453);
+    background: linear-gradient(to right, #89216B, #DA4453);
+    padding: 1rem;
+}
+
+#navbar nav {
+    text-align: center;
+}
+
+#heading {
+    font-size: 30px;
+}
+
+#main {
+    height: 90vh;
+    width: 100vw;
+    background: #ad5389;
+    background: -webkit-linear-gradient(to right, #3c1053, #ad5389);
+    background: linear-gradient(to right, #3c1053, #ad5389);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#toggler-btn {
+    padding: 0.5rem;
+    background-color: rgb(90, 75, 218);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
