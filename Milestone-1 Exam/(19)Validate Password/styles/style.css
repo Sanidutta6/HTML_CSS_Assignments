@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Ubuntu', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: #0037FF;
+    height: 100vh;
+    clip-path: polygon(0 0, 72% 0, 51% 100%, 0% 100%);
+    z-index: -1;
+}
+
+#main {
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    padding: 5rem 5rem;
+    display: flex;
+    box-shadow: 12px 12px 25px 1px rgba(0,0,0,0.75);
+}
+
+#left {
+    border-radius: 0.5rem;
+    padding: 3rem;
+    box-shadow: 12px 12px 25px 1px rgba(0,0,0,0.75);
+}
+
+#left .input-group {
+    margin-bottom: 2rem;
+}
+
+.input-group input {
+    border: 2px solid #0037FF;
+    border-radius: 1.6rem;
+    padding: 0.35rem 1.7rem;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.input-group input:focus {
+    border: 2px solid #0037FF;
+}
+
+#left #submit {
+    background-color: #0037FF;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.35rem 1.7rem;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+#right {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#right h1 {
+    font-size: 36px;
+    font-weight: 400;
+}
