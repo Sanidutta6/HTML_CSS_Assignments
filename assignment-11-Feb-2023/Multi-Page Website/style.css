@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(240,244,245);
+}
+
+/* Home Page Navigation Bar */
+#navbar {
+    width: 100%;
+    padding: 1rem 3rem;
+}
+
+#navbar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navbar nav #nav-items ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#navbar nav #nav-items ul li {
+    margin: auto 1rem;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Home Page Main Section */
+
+#main {
+    padding: 1rem 3rem;
+    display: flex;
+}
+
+#main::before {
+    content: "";
+    position: absolute;
+    background: url("images/stethoscope.png") no-repeat center center/contain;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 
+#main #background-img {
+    height: 100%;
+    width: 100%;
+} */
+
+#left {
+    width: 50%;
+}
+
+#left h1 {
+    font-size: 60px;
+    margin-bottom: 1rem;
+}
+
+#left p {
+    font-size: 17px;
+    margin-bottom: 1rem;
+    color: #7C7C7C;
+}
+
+#left #bottom-right-img {
+    display: inline-block;
+    width: 54%;
+    text-align: right;
+}
+/* #left #bottom-right-img img {} */
+
+#left button {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: #20BC7F;
+    color: #FFFFFF;
+    font-size: 21px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#right #green-box {
+    height: 465px;
+    position: absolute;
+    top: 180px;
+    right: 10px;
+    z-index: 1;
+}
+
+#right #yellow-box {
+    height: 400px;
+    position: absolute;
+    top: 220px;
+    right: 0px;
+    z-index: 2;
+}
+
+#right #doctor {
+    height: 600px;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    z-index: 3;
+}
+
+/* For Mouse */
+#mouse {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+}
