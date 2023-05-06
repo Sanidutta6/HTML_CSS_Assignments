@@ -1,0 +1,42 @@
+body {
+    
+}
+
+#main {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main h1 {
+    color: #20BC7F;
+    font-weight: 700;
+}
+
+#main #about-us-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main #about-us-card .card {
+    border-radius: 0.6rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main #about-us-card .card h1 {
+    color: #20BC7F;
+    font-weight: 700;
+}
+
+#main #about-us-card .card p {
+    font-size: 21px;
+    font-weight: 700;
+}
