@@ -209,11 +209,37 @@ main>#overview>#add-to-bag {
     flex-direction: column;
 }
 
+#products>img {
+    margin-bottom: 5rem;
+}
+
+#products #products-items {
+    width: 60%;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
 #products #products-items .product-card {
+    width: 8rem;
     background-color: #181A1B;
     border-radius: 0.5rem;
+    padding: 0.4rem;
 }
 
 #products #products-items .product-card>img {
     height: 100px;
+}
+
+#products #products-items .product-card .product-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+#products #products-items .product-card .product-info>p {
+    font-size: 12px;
+}
+
+#products #products-items .product-card .product-info>p>span {
+    font-weight: 200;
 }
