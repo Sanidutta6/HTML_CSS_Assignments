@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 0 5rem;
+}
+
+/* Header */
+
+header nav {
+    padding: 2rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav #brand-logo img {
+    height: 42px;
+}
+
+header nav #nav-items ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+header nav #nav-items ul a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+header #overview {
+    margin-top: 6rem;
+}
+
+header #overview h1 {
+    width: 50%;
+    margin-bottom: 2rem;
+    color: #FFFFFF;
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+header #overview p {
+    width: 35%;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+    font-size: 1rem;
+}
+
+header #overview #learn-more {
+    padding: 0.5rem 2rem;
+    border-radius: 1.7rem;
+    background-color: #6663E9;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+header::before {
+    content: "";
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Photos/mainBackground.png") no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
