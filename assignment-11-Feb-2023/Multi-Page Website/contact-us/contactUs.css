@@ -1,0 +1,50 @@
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main form {
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgb(240,244,245);
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.6);
+}
+
+#main form h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#main form .input-group {
+    margin-bottom: 0.5rem;
+}
+
+#main form .input-group label {
+    display: block;
+    font-weight: 700;
+}
+
+#main form .input-group input, 
+#main form .input-group textarea {
+    width: 360px;
+    padding: 0.3rem 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+#main form .input-group textarea {
+    resize: none;
+}
+
+#main form button {
+    width: 360px;
+    padding: 0.3rem 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    background-color: #20BC7F;
+    color: #FFFFFF;
+    font-weight: 600;
+}

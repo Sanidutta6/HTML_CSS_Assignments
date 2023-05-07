@@ -36,7 +36,15 @@ body {
     margin: auto 1rem;
     font-size: 18px;
     font-weight: 600;
-    cursor: pointer;
+}
+
+#navbar nav #nav-items ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#navbar nav #nav-items ul li a[href=""] {
+    color: #20BC7F;
 }
 
 /* Home Page Main Section */
@@ -59,11 +67,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-/* 
-#main #background-img {
-    height: 100%;
-    width: 100%;
-} */
 
 #left {
     width: 50%;
@@ -89,7 +92,6 @@ body {
     width: 54%;
     text-align: right;
 }
-/* #left #bottom-right-img img {} */
 
 #left button {
     padding: 0.5rem 2rem;
