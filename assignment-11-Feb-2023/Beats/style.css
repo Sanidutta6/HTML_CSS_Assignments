@@ -84,7 +84,7 @@ main>#overview>h3 {
 }
 
 main>#overview>p {
-    width: 50%;
+    width: 60%;
     font-size: 15px;
     font-weight: 400;
     margin-bottom: 2rem;
@@ -100,7 +100,120 @@ main>#overview>#add-to-bag {
     align-items: center;
 }
 
-/* 
-main > #overview > #add-to-bag > *{
-    display: inline;
-} */
+/* Social */
+#social {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Specs */
+#specification {
+    width: 100%;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+#specification #specification-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#specification #specification-list .list-items {
+    margin-bottom: 1.5rem;
+}
+
+#specification #specification-list img {
+    margin-left: 3rem;
+}
+
+/* Case */
+
+#case {
+    width: 100%;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+#case #case-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#case #case-desc #more-info {
+    width: 20%;
+    margin-left: 5rem;
+    text-align: left;
+}
+
+#case #case-desc #more-info>p {
+    margin-bottom: 1.5rem;
+    color: #BDB8BC;
+    font-size: 12px;
+}
+
+#case #case-desc #more-info #more-info-btn {
+    width: fit-content;
+    background-color: #1E1E21;
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+#case #case-desc #more-info #more-info-btn img {
+    height: 50%;
+}
+
+#case #case-desc #more-info #more-info-btn p {
+    font-size: 15px;
+}
+
+/* Buy Headphone */
+#buy-headphone {
+    width: 100%;
+    margin-top: 5rem;
+    padding: 5rem 10rem;
+    background-color: #181A1B;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buy-headphone>div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+#buy-headphone>div>div {
+    width: fit-content;
+    background-color: #000000;
+    border-radius: 0.5rem;
+    padding: 0.5rem 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Choose Style */
+#products {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#products #products-items .product-card {
+    background-color: #181A1B;
+    border-radius: 0.5rem;
+}
+
+#products #products-items .product-card>img {
+    height: 100px;
+}
