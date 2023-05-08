@@ -12,6 +12,14 @@ body {
     background-color: #000000;
     color: #FFFFFF;
     padding: 0 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+body> :nth-child(2),
+body> :nth-child(3) {
+    margin-top: -6rem;
 }
 
 /* Navbar */
@@ -85,7 +93,8 @@ main>#overview>h3 {
 
 main>#overview>p {
     width: 60%;
-    font-size: 15px;
+    color: #BDC0C2;
+    font-size: 12px;
     font-weight: 400;
     margin-bottom: 2rem;
 }
@@ -111,7 +120,7 @@ main>#overview>#add-to-bag {
 /* Specs */
 #specification {
     width: 100%;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     text-align: center;
 }
 
@@ -123,18 +132,36 @@ main>#overview>#add-to-bag {
 
 #specification #specification-list .list-items {
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
-#specification #specification-list img {
+#specification #specification-list .list-items p {
+    font-size: 12px;
+}
+
+#specification #specification-list .list-items p:last-child {
+    color: #BDC0C2;
+    font-size: 10px;
+}
+
+#specification #specification-list>img {
     margin-left: 3rem;
+}
+
+#specification #specification-list .list-items:first-child,
+#specification #specification-list .list-items:last-child {
+    margin-left: 2.5rem;
 }
 
 /* Case */
 
 #case {
     width: 100%;
-    margin-top: 5rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
 #case #case-desc {
@@ -175,7 +202,7 @@ main>#overview>#add-to-bag {
 /* Buy Headphone */
 #buy-headphone {
     width: 100%;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     padding: 5rem 10rem;
     background-color: #181A1B;
     border-radius: 0.5rem;
