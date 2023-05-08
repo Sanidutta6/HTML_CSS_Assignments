@@ -278,8 +278,18 @@ main>#overview>#add-to-bag {
     font-weight: 200;
 }
 
+#products #products-items .product-card .product-info>img {
+    height: 2rem;
+    padding: 0.3rem;
+    background-color: #000000;
+    border-radius: 0.3rem;
+}
+
 /* Footer */
 footer {
+    width: 120%;
+    position: relative;
+    left: -6rem;
     padding: 3rem;
     display: flex;
     justify-content: space-between;
