@@ -98,7 +98,9 @@ header #overview #learn-more {
     background-color: #F6F8FA;
     position: relative;
     top: -10rem;
-    padding: 10rem 5rem 0 5rem;
+    padding: 10rem 3rem 0 3rem;
+    display: flex;
+    flex-direction: column;
 }
 
 #locations>h1 {
@@ -109,14 +111,19 @@ header #overview #learn-more {
 
 .card-container {
     display: flex;
-    flex-basis: 30%;
+    flex-wrap: wrap;
+    column-gap: 4rem;
+    row-gap: 10rem;
     justify-content: center;
     align-items: center;
 }
 
 .card {
-    height: 21rem;
-    width: 24rem;
+    /* flex-basis: 25%; */
+    height: 25rem;
+    width: 23rem;
+    flex-grow: 0;
+    border-radius: 2px solid black;
 }
 
 .card>.card-img {
@@ -158,4 +165,156 @@ header #overview #learn-more {
     color: #FFFFFF;
     font-size: 18px;
     font-weight: 500;
+}
+
+/* Book Estate */
+
+#book-estate {
+    background-color: #F6F8FA;
+}
+
+#book-estate>#top, 
+#book-estate>#bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#book-estate .text-sec {
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+#book-estate .text-sec>h1 {
+    font-size: 60px;
+}
+
+#book-estate .text-sec>p {
+    color: #585c65;
+    font-size: 18px;
+}
+
+#book-estate .text-sec>.early-book {
+    width: fit-content;
+    padding: 0.5rem 2rem;
+    border-radius: 1.7rem;
+    background-color: #6663E9;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Newsletter */
+
+#newsletter {
+    width: 90%;
+    margin: 0 4rem;
+    padding: 4rem 10rem;
+    border-radius: 4rem;
+    background-color: #6663E9;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+#newsletter h1 {
+    font-size: 60px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#newsletter p {
+    width: 81%;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+}
+
+#newsletter form {
+    width: 72%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#newsletter form .input-group {
+    border-radius: 2rem;
+    padding: 1rem;
+    background-color: #5654D1;
+    display: flex;
+    align-items: center;
+}
+
+.input-group input {
+    width: 24rem;
+    padding-left: 1rem;
+    background-color: #5654D1;
+    border: none;
+    outline: none;
+}
+
+#newsletter form button {
+    border: none;
+    border-radius: 2rem;
+    background-color: #FFFFFF;
+    color: #5654D1;
+    padding: 1rem 2rem;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Footer */
+
+footer {
+    background-color: #F6F8FA;
+    margin: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .brand-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+footer .brand-info>img {
+    width: 30%;
+}
+
+footer .brand-info>.social {
+    display: flex;
+    column-gap: 2rem;
+}
+
+footer .brand-info p {
+    width: 50%;
+}
+
+footer .footer-link {
+    display: flex;
+    gap: 6rem;
+}
+
+.footer-link-items h2 {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.footer-link-items ul {
+    list-style: none;
+}
+
+.footer-link-items ul>li {
+    margin-bottom: 1.5rem;
+    cursor: pointer;
 }
