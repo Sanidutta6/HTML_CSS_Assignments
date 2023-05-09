@@ -1,0 +1,88 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #7FFFD5;
+}
+
+body>h1 {
+    width: 100%;
+    margin: 2rem 0;
+    text-align: center;
+    font-size: 60px;
+}
+
+body>p {
+    width: 100%;
+    margin: 2rem 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+p {
+    display: none;
+}
+
+@media (min-width:1440px) {
+    body {
+        background-color: #208B21;
+    }
+    p {
+        display: block;
+    }
+    p>span {
+        display: none;
+    }
+    p>#very-large {
+        display: inline;
+    }
+}
+
+@media (min-width:1024px) and (max-width:1439px) {
+    body {
+        background-color: #B1882F;
+    }
+    p {
+        display: block;
+    }
+    p>span {
+        display: none;
+    }
+    p>#large {
+        display: inline;
+    }
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+    body {
+        background-color: #75FBFD;
+    }
+    p {
+        display: block;
+    }
+    p>span {
+        display: none;
+    }
+    p>#medium {
+        display: inline;
+    }
+}
+
+@media (min-width:425px) and (max-width:767px) {
+    body {
+        background-color: #CA3143;
+    }
+    p {
+        display: block;
+    }
+    p>span {
+        display: none;
+    }
+    p>#small {
+        display: inline;
+    }
+}
