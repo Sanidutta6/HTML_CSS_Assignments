@@ -115,9 +115,33 @@ header #overview #learn-more {
     display: flex;
     flex-wrap: wrap;
     column-gap: 4rem;
-    row-gap: 10rem;
     justify-content: center;
     align-items: center;
+}
+
+.card-container>div:nth-child(2) {
+    margin-top: 4.5rem;
+}
+.card-container>div:nth-child(3) {
+    margin-top: 8.5rem;
+}
+.card-container>div:nth-child(4) {
+    margin-top: 13.5rem;
+}
+.card-container>div:nth-child(5) {
+    margin-top: 8.5rem;
+}
+.card-container>div:nth-child(6) {
+    margin-top: 4.5rem;
+}
+.card-container>div:nth-child(7) {
+    margin-top: 4.5rem;
+}
+.card-container>div:nth-child(8) {
+    margin-top: 8.5rem;
+}
+.card-container>div:nth-child(9) {
+    margin-top: 13.5rem;
 }
 
 .card {
@@ -145,8 +169,6 @@ header #overview #learn-more {
     align-items: center;
     position: relative;
     bottom: 4rem;
-
-
 }
 
 .card>.card-info>p {
@@ -181,9 +203,14 @@ header #overview #learn-more {
     align-items: center;
 }
 
-#book-estate .img-sec>img:first-child {
+#book-estate>#top>.img-sec>img:first-child {
     height: 35rem;
     width: 35rem;
+}
+
+#book-estate>#bottom>.img-sec>img:first-child {
+    height: 32rem;
+    width: 43rem;
 }
 
 #book-estate .img-sec>img:nth-child(2) {
@@ -203,7 +230,8 @@ header #overview #learn-more {
 }
 
 #book-estate .text-sec {
-    padding: 0 3rem;
+    width: 50%;
+    padding: 0 3.5rem;
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
