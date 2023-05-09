@@ -72,9 +72,73 @@ nav>ul>li>a {
 /* Projects */
 #projects {
     margin: 5rem 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #projects h1 {
     text-align: center;
     color: #FFFFFF;
+    font-size: 42px;
+}
+
+#projects hr {
+    border: none;
+    width: 10rem;
+    height: 0.5rem;
+    text-align: center;
+    background-color: #2701FF;
+    border-radius: 0.5rem;
+}
+
+.project-card {
+    width: 15rem;
+    display: flex;
+    row-gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card>img {
+    height: 12rem;
+}
+
+.project-card>p {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+/* footer */
+footer {
+    margin: 5rem 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer h1 {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 42px;
+}
+
+footer hr {
+    border: none;
+    width: 10rem;
+    height: 0.5rem;
+    text-align: center;
+    background-color: #2701FF;
+    border-radius: 0.5rem;
+}
+
+.social {
+    margin-top: 2rem;
+}
+
+.social>img {
+    height: 2rem;
 }
