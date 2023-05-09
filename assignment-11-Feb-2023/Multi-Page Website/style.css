@@ -22,14 +22,15 @@ body {
 
 #navbar nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
 #navbar nav #nav-items ul {
     list-style: none;
     display: flex;
-    justify-content: space-evenly;
+    gap: 2rem;
+    /* justify-content: space-evenly; */
 }
 
 #navbar nav #nav-items ul li {
@@ -54,22 +55,17 @@ body {
     display: flex;
 }
 
-#main::before {
-    content: "";
-    position: absolute;
-    background: url("images/stethoscope.png") no-repeat center center/contain;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #left {
     width: 50%;
+}
+
+#left>img {
+    position: absolute;
+    top: 4rem;
+    left: 15rem;
+    height: 90%;
+    width: 45%;
+    z-index: -1;
 }
 
 #left h1 {
@@ -121,7 +117,7 @@ body {
     height: 600px;
     position: absolute;
     top: 60px;
-    right: 30px;
+    right: 0;
     z-index: 3;
 }
 
