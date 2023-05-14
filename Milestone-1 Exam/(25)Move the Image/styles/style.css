@@ -1,0 +1,16 @@
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#move-img {
+    height: 100px;
+    width: 100px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
