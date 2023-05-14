@@ -1,0 +1,17 @@
+[
+  {
+    "name": "T-Shirt",
+    "price": 15.99,
+    "quantity": 2
+  },
+  {
+    "name": "Jeans",
+    "price": 29.99,
+    "quantity": 1
+  },
+  {
+    "name": "Shoes",
+    "price": 49.99,
+    "quantity": 1
+  }
+]
