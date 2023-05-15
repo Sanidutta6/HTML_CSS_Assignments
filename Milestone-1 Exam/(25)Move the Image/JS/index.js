@@ -1,36 +1,37 @@
-// Get the image element
-const image = document.getElementById('move-img');
+document.addEventListener("DOMContentLoaded", function () {
+    const moveImg = document.getElementById("move-img");
 
-// Set initial position
-let positionX = 0;
-let positionY = 0;
+    document.addEventListener("mousemove", function (event) {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
 
-// Set the distance to move in pixels
-const moveDistance = 10;
+        moveImg.style.top = `${mouseY}px`;
+        moveImg.style.left = `${mouseX}px`;
+    });
 
-// Handle arrow key press events
-document.addEventListener('keydown', (event) => {
-    // Retrieve the key value
-    const key = event.key;
+    document.addEventListener('keydown', (event) => {
+        const key = event.key;
+        const movement = 10;
+        let currentX = parseInt(moveImg.style.left.replace("px", ""));
+        let currentY = parseInt(moveImg.style.top.replace("px", ""));
 
-    // Move the image based on the arrow key pressed
-    switch (key) {
-        case 'ArrowLeft':
-            positionX -= moveDistance;
-            break;
-        case 'ArrowUp':
-            positionY -= moveDistance;
-            break;
-        case 'ArrowRight':
-            positionX += moveDistance;
-            break;
-        case 'ArrowDown':
-            positionY += moveDistance;
-            break;
-        default:
-            return; // Do nothing for other keys
-    }
+        switch (key) {
+            case 'ArrowUp':
+                currentX += movement;
+                break;
+            case 'ArrowDown':
+                currentX -= movement;
+                break;
+            case 'ArrowLeft':
+                currentY -= movement;
+                break;
+            case 'ArrowRight':
+                currentY += movement;
+                break;
+            default: return;
+        }
 
-    // Update the image position
-    image.style.transform = `translate(${positionX}px, ${positionY}px)`;
+        moveImg.style.left = `${currentX}px`;
+        moveImg.style.top = `${currentY}px`;
+    });
 });
