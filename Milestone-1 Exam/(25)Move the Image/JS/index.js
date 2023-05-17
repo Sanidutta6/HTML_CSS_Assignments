@@ -17,16 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         switch (key) {
             case 'ArrowUp':
-                currentX += movement;
-                break;
-            case 'ArrowDown':
-                currentX -= movement;
-                break;
-            case 'ArrowLeft':
                 currentY -= movement;
                 break;
-            case 'ArrowRight':
+            case 'ArrowDown':
                 currentY += movement;
+                break;
+            case 'ArrowLeft':
+                currentX -= movement;
+                break;
+            case 'ArrowRight':
+                currentX += movement;
                 break;
             default: return;
         }

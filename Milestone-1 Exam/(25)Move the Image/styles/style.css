@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
 #move-img {
     height: 60px;
     width: 60px;
@@ -12,6 +18,7 @@
     position: relative;
     top: 0;
     left: 0;
+    transition: 0.3s;
 }
 
 #move-img img {
