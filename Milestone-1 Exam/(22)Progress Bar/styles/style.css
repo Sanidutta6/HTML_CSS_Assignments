@@ -13,6 +13,7 @@
     width: 100%;
     height: 12px;
     background-color: #f0f0f0;
+    position: fixed;
 }
 
 .progress_bar {
@@ -26,7 +27,7 @@
 #navbar {
     width: 100%;
     padding: 1rem 6rem;
-    background-color: rgb(247,247,247);
+    background-color: rgb(247, 247, 247);
 }
 
 #navbar>nav {
@@ -60,7 +61,7 @@
 
 #nav-items a {
     text-decoration: none;
-    color: rgb(77,55,52);
+    color: rgb(77, 55, 52);
 }
 
 /* Hero */
@@ -70,7 +71,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(247,247,247);
+    background-color: rgb(247, 247, 247);
 }
 
 .left {
@@ -89,8 +90,8 @@
 }
 
 .left #shop_now {
-    border-color: rgb(252,93,53);
-    background-color: rgb(252,93,53);
+    border-color: rgb(252, 93, 53);
+    background-color: rgb(252, 93, 53);
     outline: none;
     padding: 0.8rem 2rem;
     text-transform: uppercase;
@@ -98,8 +99,8 @@
 }
 
 .left #contact_us {
-    color: rgb(255,255,255);
-    background-color: rgb(0,0,0);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     outline: none;
     padding: 0.8rem 2rem;
     text-transform: uppercase;
@@ -122,8 +123,8 @@
 }
 
 #services button {
-    color: rgb(255,255,255);
-    background-color: rgb(0,0,0);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     outline: none;
     padding: 0.8rem 2rem;
     text-transform: uppercase;
@@ -157,9 +158,10 @@
 
 .card .card_main_text {
     margin-bottom: 1rem;
-    color: rgb(252,93,53);
+    color: rgb(252, 93, 53);
     font-size: 21px;
 }
+
 /* Fruits */
 #buy_fruits {
     width: 100%;
@@ -191,8 +193,8 @@
 .fruit_desc button {
     margin-top: 1rem;
     padding: 0.6rem 2rem;
-    background-color: rgb(0,0,0);
-    color: rgb(255,255,255);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .fruits_list-item img {
@@ -216,13 +218,14 @@
 #tasty-fruits h1 {
     font-size: 125px;
     text-transform: uppercase;
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 /* Testimonials */
 #testimonials {
     width: 100%;
     padding: 3rem 6rem;
+    background-color: rgb(247, 247, 247);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -232,6 +235,7 @@
 #testimonials>h1 {
     margin-bottom: 1rem;
 }
+
 #testimonials>p {
     margin-bottom: 2rem;
 }
@@ -248,12 +252,49 @@
 }
 
 /* Contact Us */
+#contact-us {
+    width: 100%;
+    background: url("../assets/orange-dish.png") no-repeat right;
+    padding: 4rem 6rem;
+}
 
+.contact-us-container {
+    width: 60%;
+}
+
+.contact-us-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.input-group>input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    margin-bottom: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.input-group>input[name="message"] {
+    height: 9rem;
+}
+
+.contact-us-container button[type="submit"] {
+    border: none;
+    background-color: rgb(252, 93, 53);
+    color: rgb(0, 0, 0);
+    padding: 0.5rem 2rem;
+    text-transform: uppercase;
+    font-size: 16px;
+}
 
 /* Footer */
 footer {
-    background-color: rgb(0,0,0);
-    color: rgb(247,247,247);
+    background-color: rgb(0, 0, 0);
+    color: rgb(247, 247, 247);
     width: 100%;
     padding: 2rem 15rem;
     display: flex;
@@ -292,8 +333,8 @@ footer img {
 }
 
 #subscribe button {
-    border-color: rgb(252,93,53);
-    background-color: rgb(252,93,53);
+    border-color: rgb(252, 93, 53);
+    background-color: rgb(252, 93, 53);
     outline: none;
     border-radius: 0.3rem;
     margin-top: 0.4rem;
