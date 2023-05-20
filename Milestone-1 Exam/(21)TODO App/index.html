@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO App</title>
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Linking JS -->
+    <script src="JS/index.js"></script>
 </head>
+
 <body>
     <div id="navbar">
         <nav>
-            <h1>My TODO App</h1>
+            <div id="logo">
+                <img src="./assets/logo2.png" alt="Logo">
+                TODO App
+            </div>
+            <div id="search">
+                <input type="text" name="search" id="search" placeholder="Search" />
+            </div>
         </nav>
     </div>
     <div id="hero">
-        <div class="todo-input"></div>
-        <div class="todo-list"></div>
+        <div id="left">
+            <div id="compose-todo">
+                <button>Compose</button>
+            </div>
+            <div id="todo-labels">
+                <div id="label-header">
+                    <h3>Labels</h3>
+                    <button id="add-label">+</button>
+                </div>
+                <div id="labels-list">
+                    <div class="label">
+                        <div class="label-color"></div>
+                        <div class="label-text">Starred</div>
+                    </div>
+                    <div class="label">
+                        <div class="label-color"></div>
+                        <div class="label-text">Draft</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="todo-header">
+                <div id="header-check-box">
+                    <input type="checkbox" id="checkbox">
+                </div>
+            </div>
+            <div id="todo-items">
+                <div class="todo">
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
