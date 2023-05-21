@@ -126,7 +126,6 @@ body {
     display: flex;
     gap: 1rem;
     align-items: center;
-    cursor: pointer;
 }
 
 .label-color {
@@ -140,6 +139,7 @@ body {
 .label-text {
     color: rgb(255, 255, 255);
     font-weight: 300;
+    cursor: pointer;
 }
 
 #right {
