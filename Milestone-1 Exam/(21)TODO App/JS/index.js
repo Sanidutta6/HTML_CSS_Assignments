@@ -25,7 +25,7 @@ function today() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    let todoObjList = [];
+    let todoObjList = [], labelList = [];
     let TODOCounter = 0;
     const editor = document.getElementById("new-todo-editor");
     const composeTodo = document.getElementById("compose-todo");
@@ -109,6 +109,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Saves new Label
     labelCreateBtn.addEventListener("click", function () {
         const newLabel = document.getElementById("label-name").value;
+        if(!newLabel) {
+            console.log("Please Fill the input field.");
+            return;
+        }
         const labelElement = `
                     <div class="label">
                         <div class="label-color"></div>
