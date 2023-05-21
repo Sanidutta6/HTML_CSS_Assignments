@@ -318,3 +318,23 @@ body {
 #label-name {
     padding: 0 0.2rem;
 }
+
+#create-label {
+    background-color: rgb(28, 87, 208);
+    color: rgb(255 255 255);
+    font-size: 15px;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#cancel {
+    font-size: 15px;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
