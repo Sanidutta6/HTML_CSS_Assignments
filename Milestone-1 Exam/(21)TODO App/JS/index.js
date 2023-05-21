@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteNewTodo = document.getElementById("delete");
     const labelCreateBtn = document.getElementById("create-label");
     const labelCloseBtn = document.getElementById("cancel");
+    const back = document.getElementById("back");
+    const changeLabel = document.getElementById("change-label");
+    const editTODO = document.getElementById("edit-todo");
+    const deleteTODO = document.getElementById("delete-todo");
 
     // closes the editor upon calling.
     function closeEditor() {
@@ -48,6 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function closeLabelEditor() {
         document.getElementById("label-name").value = "";
         document.getElementById("new-label").style.display = "none";
+    }
+
+    // Returns to TODO List
+    function returnToTODOList() {
+        document.getElementById("TODO-show-menu").style.display = "none";
+        document.getElementById("view-todo").style.display = "none";
     }
 
     // Opens Editor for new Todo.
@@ -120,5 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>`;
         document.getElementById("labels-list").innerHTML += labelElement;
         closeLabelEditor();
+    });
+
+    // Returns to main list showing.
+    back.addEventListener("click", returnToTODOList);
+
+    // Edits the TODO
+    editTODO.addEventListener("click", function() {
+        document.querySelector(".view-todo>h1");
     })
 });

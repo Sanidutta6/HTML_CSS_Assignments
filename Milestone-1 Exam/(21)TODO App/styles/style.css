@@ -154,7 +154,12 @@ body {
     height: 5rem;
 }
 
-#back {
+#TODO-show-menu {
+    display: flex;
+    gap: 1rem;
+}
+
+#back, #change-label, #edit-todo, #delete-todo {
     display: inline-block;
     height: 40px;
     width: 40px;
@@ -164,7 +169,12 @@ body {
     border-radius: 1.2rem;
 }
 
-#back:hover {
+#edit-todo>img {
+    height: 20px;
+    filter: invert(1);
+}
+
+#back:hover, #change-label:hover, #edit-todo:hover, #delete-todo:hover {
     background-color: rgb(108,108,108);
 }
 
