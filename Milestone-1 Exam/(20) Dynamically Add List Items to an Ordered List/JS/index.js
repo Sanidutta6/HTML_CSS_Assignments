@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             list.appendChild(newItem);
             newItem.scrollIntoView({ behavior: 'smooth', block: 'end' });
         } else {
-            console.log("Empty List");
+            alert("Empty List: No More Data to Add in List");
         }
     });
 

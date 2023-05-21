@@ -94,9 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="todo-title">${newTodo["title"]}</div>
         </div>`;
         document.getElementById("todo-items").innerHTML += todoElement;
+        document.getElementById("empty-todo").style.display = "none";
+        document.getElementById("todo-items").style.display = "block";
 
         closeEditor();
-        console.log("Save TODO Clicked");
     });
 
     // Delete New Todo.

@@ -154,6 +154,22 @@ body {
     height: 5rem;
 }
 
+#empty-todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#empty-todo>h1 {
+    font-weight: 500;
+    color: rgb(102, 102, 102);
+}
+
+#todo-items {
+    display: none;
+}
+
 .todo {
     background-color: rgb(22, 22, 22);
     box-shadow: inset 0 -1px 0 0 rgb(255 255 255 / 12%);
