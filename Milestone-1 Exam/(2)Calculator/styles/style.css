@@ -18,8 +18,8 @@ body {
 
 .main {
     background-color: #000000;
-    /* background: linear-gradient(to right, #434343, #000000); */
     padding: 1rem;
+    border-radius: 1rem;
 }
 
 #display {
@@ -30,9 +30,8 @@ body {
     font-weight: 500;
     color: #ffffff;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid red;
+    justify-content: right;
+    align-items: flex-end;
 }
 
 #keys {
