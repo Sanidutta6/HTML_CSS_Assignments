@@ -33,10 +33,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.right form {
-    margin-top: 2rem;
+    gap: 2rem;
 }
 
 .right form .input-group {
@@ -62,4 +59,8 @@ body {
 .input-group input:focus {
     box-shadow: 0 0 5pt 2pt #4293d6;
     outline-width: 0px;
+}
+
+.show-validity {
+    height: 1.5rem;
 }
