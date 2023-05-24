@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeEditorBtn = document.getElementById("close");
     const addLabel = document.getElementById("add-label");
     const saveNewTodo = document.getElementById("save");
-    // const saveNewTodoDraft = document.getElementById("save-draft");
     const deleteNewTodo = document.getElementById("delete");
     const labelCreateBtn = document.getElementById("create-label");
     const labelCloseBtn = document.getElementById("cancel");
@@ -100,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const todoElement = document.createElement("div");
         todoElement.classList.add('todo');
-        todoElement.setAttribute('data-id', TODOCounter);
+        todoElement.setAttribute('data-id', newTodo["id"]);
         todoElement.innerHTML = `
             <div class="checkbox" aria-checked="false">
                 <span class="checkmark"></span>
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="todo-title">${newTodo["title"]}</div>`;
 
         todoElement.addEventListener("click", function (event) {
-            const todoId = event.target.getAttribute("data-id");
+            const todoId = event.target.closest('.todo').getAttribute("data-id");
             console.log(todoId);
             const todoObj = todoObjList.find(todo => todo.id === todoId);
             console.log(todoObj);
@@ -177,5 +176,21 @@ document.addEventListener("DOMContentLoaded", function () {
             todoObj["description"] = todoDesc.textContent;
             console.log(todoObjList);
         });
+    });
+
+    // Deletes TODO
+    deleteTODO.addEventListener("click", function () {
+        const todoId = document.getElementById("view-todo").getAttribute("data-id");
+
+        // Remove the element from the JavaScript array
+        todoObjList = todoObjList.filter(todo => todo.id !== todoId);
+
+        // Remove the element from the HTML document
+        const todoElement = document.querySelector(`.todo[data-id="${todoId}"]`);
+        if (todoElement) {
+            todoElement.remove();
+        }
+
+        returnToTODOList();
     });
 });
