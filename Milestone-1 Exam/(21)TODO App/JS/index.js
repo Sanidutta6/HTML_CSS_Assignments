@@ -1,8 +1,9 @@
 // TODO: Todo obj structure -
 // const todoObj = {
+//     "id": "todoId",
 //     "title": "TODO-title",
 //     "description": "TODO-desc",
-//     "date": Date.now()
+//     "date": today(),
 //     "draft": false,
 //     "checked": false,
 //     "starred": false,
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function returnToTODOList() {
         document.getElementById("TODO-show-menu").style.display = "none";
         document.getElementById("view-todo").style.display = "none";
+        document.getElementById("todo-items").style.display = "block";
     }
 
     // Opens Editor for new Todo.
@@ -82,28 +84,48 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // const date = new Date();
+        TODOCounter++;
         const newTodo = {
+            "id": TODOCounter.toString(),
             "title": title,
             "description": description,
             "date": today(),
             "draft": false,
             "checked": false,
             "starred": false,
-            "tags": ""
+            "tags": "Starred"
         }
 
         todoObjList.push(newTodo);
-        TODOCounter++;
-        const todoElement = `
-        <div class="todo" data-id="${TODOCounter}">
+
+        const todoElement = document.createElement("div");
+        todoElement.classList.add('todo');
+        todoElement.setAttribute('data-id', TODOCounter);
+        todoElement.innerHTML = `
             <div class="checkbox" aria-checked="false">
                 <span class="checkmark"></span>
             </div>
             <div class="date">${newTodo["date"]}</div>
-            <div class="todo-title">${newTodo["title"]}</div>
-        </div>`;
-        document.getElementById("todo-items").innerHTML += todoElement;
+            <div class="todo-title">${newTodo["title"]}</div>`;
+
+        todoElement.addEventListener("click", function (event) {
+            const todoId = event.target.getAttribute("data-id");
+            console.log(todoId);
+            const todoObj = todoObjList.find(todo => todo.id === todoId);
+            console.log(todoObj);
+
+            document.getElementById("todo-items").style.display = "none";
+            document.getElementById("view-todo").style.display = "flex";
+            document.getElementById("TODO-show-menu").style.display = "flex";
+            document.getElementById("view-todo").setAttribute("data-id", todoId);
+
+            document.querySelector("#view-todo>h1").innerHTML = todoObj["title"];
+            document.querySelector("#view-todo>p").innerHTML = todoObj["description"];
+            document.querySelector("#view-todo>div>.created-on").innerHTML = `On ${todoObj["date"]}`;
+            document.querySelector("#view-todo>div>.tags").innerHTML = todoObj["tags"];
+        });
+
+        document.getElementById("todo-items").appendChild(todoElement);
         document.getElementById("empty-todo").style.display = "none";
         document.getElementById("todo-items").style.display = "block";
 
@@ -119,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Saves new Label
     labelCreateBtn.addEventListener("click", function () {
         const newLabel = document.getElementById("label-name").value;
-        if(!newLabel) {
+        if (!newLabel) {
             console.log("Please Fill the input field.");
             return;
         }
@@ -136,7 +158,24 @@ document.addEventListener("DOMContentLoaded", function () {
     back.addEventListener("click", returnToTODOList);
 
     // Edits the TODO
-    editTODO.addEventListener("click", function() {
-        document.querySelector(".view-todo>h1");
-    })
+    editTODO.addEventListener("click", function () {
+        const todoHeader = document.querySelector("#view-todo>h1");
+        const todoDesc = document.querySelector("#view-todo>p");
+        todoHeader.contentEditable = true;
+        todoDesc.contentEditable = true;
+        document.getElementById("update").style.display = "block";
+
+        document.getElementById("update").addEventListener("click", function () {
+            const todoId = document.getElementById("view-todo").getAttribute("data-id");
+
+            todoHeader.contentEditable = false;
+            todoDesc.contentEditable = false;
+            document.getElementById("update").style.display = "none";
+
+            const todoObj = todoObjList.find(todo => todo.id == todoId);
+            todoObj["title"] = todoHeader.textContent;
+            todoObj["description"] = todoDesc.textContent;
+            console.log(todoObjList);
+        });
+    });
 });
