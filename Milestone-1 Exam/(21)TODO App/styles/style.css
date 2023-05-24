@@ -185,6 +185,7 @@ body {
 }
 
 #empty-todo {
+    height: 80%;
     display: flex;
     /* flex */
     flex-direction: column;
@@ -258,6 +259,12 @@ body {
 
 .checkbox[aria-checked="true"] .checkmark {
     transform: scale(1) rotate(45deg);
+}
+
+.todo-info {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
 }
 
 #view-todo {

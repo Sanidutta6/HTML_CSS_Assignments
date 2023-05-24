@@ -25,6 +25,28 @@ function today() {
     return `${dd}-${mm}-${yyyy}`;
 }
 
+function createTODOElement(todoId, creationDate, todoTitle) {
+    const todoElement = document.createElement("div");
+    todoElement.classList.add('todo');
+    todoElement.setAttribute('data-id', todoId);
+
+    const checkBoxElement = document.createElement("div");
+    checkBoxElement.classList.add('checkbox');
+    checkBoxElement.setAttribute('aria-checked', "false");
+    checkBoxElement.innerHTML = `<span class="checkmark"></span>`;
+
+    const todoInfoElement = document.createElement("div");
+    todoInfoElement.classList.add("todo-info");
+    todoInfoElement.innerHTML = `
+            <div class="date">${creationDate}</div>
+            <div class="todo-title">${todoTitle}</div>`;
+
+    todoElement.appendChild(checkBoxElement);
+    todoElement.appendChild(todoInfoElement);
+
+    return { todoElement, checkBoxElement, todoInfoElement };
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     let todoObjList = [], labelList = [];
     let TODOCounter = 0;
@@ -97,21 +119,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         todoObjList.push(newTodo);
 
-        const todoElement = document.createElement("div");
-        todoElement.classList.add('todo');
-        todoElement.setAttribute('data-id', newTodo["id"]);
-        todoElement.innerHTML = `
-            <div class="checkbox" aria-checked="false">
-                <span class="checkmark"></span>
-            </div>
-            <div class="date">${newTodo["date"]}</div>
-            <div class="todo-title">${newTodo["title"]}</div>`;
+        const { todoElement, checkBoxElement, todoInfoElement } = createTODOElement(newTodo["id"], newTodo["date"], newTodo["title"]);
+        // console.log(todoElement);
+        // console.log(checkBoxElement);
 
-        todoElement.addEventListener("click", function (event) {
+        todoInfoElement.addEventListener("click", function (event) {
             const todoId = event.target.closest('.todo').getAttribute("data-id");
-            console.log(todoId);
             const todoObj = todoObjList.find(todo => todo.id === todoId);
-            console.log(todoObj);
 
             document.getElementById("todo-items").style.display = "none";
             document.getElementById("view-todo").style.display = "flex";
@@ -122,6 +136,15 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#view-todo>p").innerHTML = todoObj["description"];
             document.querySelector("#view-todo>div>.created-on").innerHTML = `On ${todoObj["date"]}`;
             document.querySelector("#view-todo>div>.tags").innerHTML = todoObj["tags"];
+        });
+
+        checkBoxElement.addEventListener("click", function (event) {
+            const todoId = event.target.closest('.todo').getAttribute("data-id");
+
+            const todoObj = todoObjList.find(todo => todo.id == todoId);
+            todoObj["checked"] = !todoObj["checked"]; // toggles value
+
+            event.target.setAttribute("aria-checked", todoObj["checked"]);
         });
 
         document.getElementById("todo-items").appendChild(todoElement);
@@ -174,7 +197,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const todoObj = todoObjList.find(todo => todo.id == todoId);
             todoObj["title"] = todoHeader.textContent;
             todoObj["description"] = todoDesc.textContent;
-            console.log(todoObjList);
         });
     });
 
@@ -189,6 +211,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const todoElement = document.querySelector(`.todo[data-id="${todoId}"]`);
         if (todoElement) {
             todoElement.remove();
+        }
+        if (document.querySelectorAll(`.todo`).length === 0) {
+            document.getElementById("empty-todo").style.display = "flex";
+            document.getElementById("todo-items").style.display = "none";
         }
 
         returnToTODOList();
