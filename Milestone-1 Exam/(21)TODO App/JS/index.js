@@ -48,7 +48,7 @@ function createTODOElement(todoId, creationDate, todoTitle) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    let todoObjList = [], labelList = [];
+    let todoObjList = [], labelList = ["Starred"];
     let TODOCounter = 0;
     const editor = document.getElementById("new-todo-editor");
     const composeTodo = document.getElementById("compose-todo");
@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("TODO-show-menu").style.display = "none";
         document.getElementById("view-todo").style.display = "none";
         document.getElementById("todo-items").style.display = "block";
+        document.getElementById("default-menu").style.display = "flex";
     }
 
     // Opens Editor for new Todo.
@@ -128,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("todo-items").style.display = "none";
             document.getElementById("view-todo").style.display = "flex";
             document.getElementById("TODO-show-menu").style.display = "flex";
+            document.getElementById("default-menu").style.display = "none";
             document.getElementById("view-todo").setAttribute("data-id", todoId);
 
             document.querySelector("#view-todo>h1").innerHTML = todoObj["title"];
@@ -146,8 +148,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if(todoObj["checked"]) {
                 // show menu
+                document.getElementById("check-menu").style.display = "flex";
             } else {
                 // check for every other todo objs if all them aren't checked.
+                let todoChecked = false;
+                for(let i = 0;i < todoObjList.length; i++) {
+                    if(todoObjList[i]["checked"]) {
+                        todoChecked = true;
+                        break;
+                    }
+                }
+
+                if(!todoChecked) {
+                    // Stop showing header menu.
+                    document.getElementById("check-menu").style.display = "none";
+                }
             }
         });
 
@@ -171,6 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Please Fill the input field.");
             return;
         }
+
+        labelList.push(newLabel);
+
         const labelElement = `
                     <div class="label">
                         <div class="label-color"></div>
@@ -182,6 +200,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Returns to main list showing.
     back.addEventListener("click", returnToTODOList);
+
+    // Change Label of todo.
+    changeLabel.addEventListener("click",function() {
+        console.log("Clicked");
+    });
 
     // Edits the TODO
     editTODO.addEventListener("click", function () {

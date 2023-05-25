@@ -154,6 +154,39 @@ body {
     height: 5rem;
 }
 
+#default-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#check-menu {
+    display: none; /*flex*/
+    align-items: center;
+    gap: 1rem;
+}
+
+#change-labels,
+#delete-todos {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding-top: 0.6rem;
+    padding-left: 0.6rem;
+    border-radius: 1.2rem;
+}
+
+#check-menu img {
+    display: flex;
+    align-items: center;
+}
+
+#change-labels:hover,
+#delete-todos:hover {
+    background-color: rgb(108, 108, 108);
+}
+
 #TODO-show-menu {
     display: none; /*flex*/
     gap: 1rem;
