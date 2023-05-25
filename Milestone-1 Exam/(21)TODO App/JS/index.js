@@ -111,9 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "title": title,
             "description": description,
             "date": today(),
-            "draft": false,
             "checked": false,
-            "starred": false,
             "tags": "Starred"
         }
 
@@ -145,6 +143,12 @@ document.addEventListener("DOMContentLoaded", function () {
             todoObj["checked"] = !todoObj["checked"]; // toggles value
 
             event.target.setAttribute("aria-checked", todoObj["checked"]);
+
+            if(todoObj["checked"]) {
+                // show menu
+            } else {
+                // check for every other todo objs if all them aren't checked.
+            }
         });
 
         document.getElementById("todo-items").appendChild(todoElement);

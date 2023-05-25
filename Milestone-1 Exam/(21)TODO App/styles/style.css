@@ -172,9 +172,12 @@ body {
     border-radius: 1.2rem;
 }
 
-#edit-todo>img {
+#back>img,
+#change-label>img,
+#edit-todo>img,
+#delete-todo>img {
     height: 20px;
-    filter: invert(1);
+    width: 20px;
 }
 
 #back:hover,
