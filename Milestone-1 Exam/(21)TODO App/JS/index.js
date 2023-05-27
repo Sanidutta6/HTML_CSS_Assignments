@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const editTODO = document.getElementById("edit-todo");
     const deleteTODO = document.getElementById("delete-todo");
     const deleteTODOs = document.getElementById("delete-todos");
+    const selectMenu = document.getElementById("select-menu");
 
     // closes the editor upon calling.
     function closeEditor() {
@@ -85,6 +86,42 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("todo-items").style.display = "block";
         document.getElementById("default-menu").style.display = "flex";
     }
+
+    // Select menu event
+    // selectMenu.addEventListener("click", function(event) {
+    //     document.getElementById("select-todo").style.display = "block";
+    // });
+    // Array.from(selectMenu.children).forEach((selectMenuItem) => {
+    //     selectMenuItem.addEventListener("click", function(event) {
+    //         if(event.target.textContent === "All") {
+    //             // check all todos
+    //             todoObjList.forEach((todo) => {
+    //                 todo.checked = "true";
+    //             });
+
+    //             const todoElementCheckboxes = document.querySelectorAll(".todo>.checkbox");
+    //             todoElementCheckboxes.forEach((checkbox) => {
+    //                 checkbox.setAttribute("aria-checked", "true");
+    //             });
+
+    //             document.getElementById("check-menu").style.display = "flex";
+    //             console.log("Click");
+    //         } else if(event.target.textContent === "None") {
+    //             // Unchecks all todo
+    //             todoObjList.forEach((todo) => {
+    //                 todo.checked = "false";
+    //             });
+
+    //             const todoElementCheckboxes = document.querySelectorAll(".todo>.checkbox");
+    //             todoElementCheckboxes.forEach((checkbox) => {
+    //                 checkbox.setAttribute("aria-checked", "false");
+    //             });
+
+    //             document.getElementById("check-menu").style.display = "none";
+    //             console.log("Click");
+    //         }
+    //     });
+    // });
 
     // Opens Editor for new Todo.
     composeTodo.addEventListener("click", function () {

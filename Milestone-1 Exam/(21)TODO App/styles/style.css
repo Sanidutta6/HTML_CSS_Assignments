@@ -154,6 +154,12 @@ body {
     height: 5rem;
 }
 
+#select-menu {
+    border: 1px solid rgb(224, 224, 224);
+    height: 1.5rem;
+    width: 2.5rem;
+}
+
 #default-menu {
     display: flex;
     align-items: center;
@@ -222,7 +228,7 @@ body {
     background-color: rgb(108, 108, 108);
 }
 
-.label-menu {
+.label-menu, #select-todo {
     display: none;  /*block*/
     position: absolute;
     background-color: rgb(17, 17, 17);
@@ -233,11 +239,13 @@ body {
     z-index: 9999;
 }
 
-.label-menu li {
+.label-menu li,
+#select-todo li {
     cursor: pointer;
 }
 
-.label-menu li:hover {
+.label-menu li:hover,
+#select-todo li:hover {
     background-color: rgb(89,89,89);
 }
 
