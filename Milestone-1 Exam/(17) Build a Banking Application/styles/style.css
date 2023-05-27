@@ -50,5 +50,37 @@ body {
 
 #right {
     width: 88%;
-    border: 1px solid red;
+    padding: 1rem;
+}
+
+/* Dashboard view */
+#dashboard-view {
+    display: none; /*block*/
+}
+
+#dashboard-view>h1 {
+    margin-bottom: 2rem;
+}
+
+.card-wrapper {
+    display: flex;
+    gap: 2rem;
+}
+
+.card {
+    width: 15rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid black;
+    border-radius: 0.9rem;
+    text-align: center;
+}
+
+.card>h2 {
+    font-weight: 500;
+}
+
+/* Controls-view */
+#controls-view {
+    /* block */
+    display: none;
 }
