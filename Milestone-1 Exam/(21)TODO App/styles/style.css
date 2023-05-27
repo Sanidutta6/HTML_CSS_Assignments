@@ -161,7 +161,8 @@ body {
 }
 
 #check-menu {
-    display: none; /*flex*/
+    display: none;
+    /*flex*/
     align-items: center;
     gap: 1rem;
 }
@@ -188,7 +189,8 @@ body {
 }
 
 #TODO-show-menu {
-    display: none; /*flex*/
+    display: none;
+    /*flex*/
     gap: 1rem;
 }
 
@@ -220,6 +222,25 @@ body {
     background-color: rgb(108, 108, 108);
 }
 
+.label-menu {
+    display: none;  /*block*/
+    position: absolute;
+    background-color: rgb(17, 17, 17);
+    border: 1px solid #ccc;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    z-index: 9999;
+}
+
+.label-menu li {
+    cursor: pointer;
+}
+
+.label-menu li:hover {
+    background-color: rgb(89,89,89);
+}
+
 #empty-todo {
     height: 80%;
     display: flex;
@@ -235,7 +256,8 @@ body {
 }
 
 #todo-items {
-    display: none; /*block*/
+    display: none;
+    /*block*/
 }
 
 .todo {
@@ -304,7 +326,8 @@ body {
 }
 
 #view-todo {
-    display: none; /*flex*/
+    display: none;
+    /*flex*/
     flex-direction: column;
     gap: 1.5rem;
     height: 33rem;

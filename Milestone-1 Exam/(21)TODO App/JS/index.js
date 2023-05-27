@@ -60,8 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const labelCloseBtn = document.getElementById("cancel");
     const back = document.getElementById("back");
     const changeLabel = document.getElementById("change-label");
+    const changeLabels = document.getElementById("change-labels");
     const editTODO = document.getElementById("edit-todo");
     const deleteTODO = document.getElementById("delete-todo");
+    const deleteTODOs = document.getElementById("delete-todos");
 
     // closes the editor upon calling.
     function closeEditor() {
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "title": title,
             "description": description,
             "date": today(),
-            "checked": false,
+            "checked": "false",
             "tags": "Starred"
         }
 
@@ -142,24 +144,24 @@ document.addEventListener("DOMContentLoaded", function () {
             const todoId = event.target.closest('.todo').getAttribute("data-id");
 
             const todoObj = todoObjList.find(todo => todo.id == todoId);
-            todoObj["checked"] = !todoObj["checked"]; // toggles value
+            todoObj["checked"] = (todoObj["checked"] === "true")?"false":"true"; // toggles value
 
             event.target.setAttribute("aria-checked", todoObj["checked"]);
 
-            if(todoObj["checked"]) {
+            if (todoObj["checked"] === "true") {
                 // show menu
                 document.getElementById("check-menu").style.display = "flex";
             } else {
                 // check for every other todo objs if all them aren't checked.
                 let todoChecked = false;
-                for(let i = 0;i < todoObjList.length; i++) {
-                    if(todoObjList[i]["checked"]) {
+                for (let i = 0; i < todoObjList.length; i++) {
+                    if (todoObjList[i]["checked"] === "true") {
                         todoChecked = true;
                         break;
                     }
                 }
 
-                if(!todoChecked) {
+                if (!todoChecked) {
                     // Stop showing header menu.
                     document.getElementById("check-menu").style.display = "none";
                 }
@@ -201,9 +203,53 @@ document.addEventListener("DOMContentLoaded", function () {
     // Returns to main list showing.
     back.addEventListener("click", returnToTODOList);
 
-    // Change Label of todo.
-    changeLabel.addEventListener("click",function() {
-        console.log("Clicked");
+    // Change Label of a todo.
+    changeLabel.addEventListener("click", function () {
+        const labelMenu = document.querySelector("#change-label>.label-menu");
+        labelMenu.innerHTML = "";
+        labelMenu.style.display = (labelMenu.style.display === "none")?"block":"none";
+
+        labelList.forEach(function(label) {
+            const labelItem = document.createElement("li");
+            labelItem.textContent = label;
+            labelMenu.appendChild(labelItem);
+            labelItem.addEventListener("click", function(event) {
+                labelMenu.style.display = "none";
+                event.stopPropagation(); // Stop event propagation
+
+                const todoId = document.getElementById("view-todo").getAttribute("data-id");
+                const todo = todoObjList.find((todo) => todo.id === todoId);
+                todo.tags = event.target.textContent;
+                document.querySelector("#view-todo>div>.tags").textContent = event.target.textContent;
+            });
+        });
+    });
+
+    // Change Label of TODOs.
+    changeLabels.addEventListener("click", function () {
+        const labelMenu = document.querySelector("#change-labels>.label-menu");
+        labelMenu.innerHTML = "";
+        labelMenu.style.display = (labelMenu.style.display === "none")?"block":"none";
+
+        labelList.forEach(function(label) {
+            const labelItem = document.createElement("li");
+            labelItem.textContent = label;
+            labelMenu.appendChild(labelItem);
+            labelItem.addEventListener("click", function(event) {
+                labelMenu.style.display = "none";
+                event.stopPropagation(); // Stop event propagation
+
+                todoObjList.forEach((todo) => {
+                    if(todo.checked === "true") {
+                        todo.tags = event.target.textContent;
+                        todo.checked = "false";
+                        document.querySelector(`.todo[data-id='${todo.id}']>.checkbox`).setAttribute("aria-checked", "false");
+                    }
+                });
+                document.getElementById("check-menu").style.display = "none";
+            });
+        });
+        console.log("Click");
     });
 
     // Edits the TODO
@@ -224,6 +270,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const todoObj = todoObjList.find(todo => todo.id == todoId);
             todoObj["title"] = todoHeader.textContent;
             todoObj["description"] = todoDesc.textContent;
+
+            document.querySelector(`.todo[data-id="${todoId}"] .todo-title`).innerHTML = todoObj["title"];
         });
     });
 
@@ -245,5 +293,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         returnToTODOList();
+    });
+
+    // Delete TODOs
+    deleteTODOs.addEventListener("click", function () {
+        todoObjList = todoObjList.filter(todo => todo.checked != "true");
+        // Select all .todo elements
+        const todoElements = document.querySelectorAll('.todo');
+
+        // Loop through each .todo element
+        todoElements.forEach(todoElement => {
+            // Get the checkbox element within the .todo element
+            const checkbox = todoElement.querySelector('.checkbox');
+
+            // Get the aria-checked attribute value
+            const ariaChecked = checkbox.getAttribute('aria-checked');
+
+            // Check if the aria-checked is "true"
+            if (ariaChecked === 'true') {
+                // Remove the .todo element from the DOM
+                todoElement.remove();
+            }
+        });
     });
 });
