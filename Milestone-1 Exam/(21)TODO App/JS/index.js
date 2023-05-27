@@ -4,11 +4,11 @@
 //     "title": "TODO-title",
 //     "description": "TODO-desc",
 //     "date": today(),
-//     "draft": false,
-//     "checked": false,
-//     "starred": false,
+//     "checked": "false",
 //     "tags": ""
 // }
+
+// [TODO]: Implement Search Bar logic.
 
 function today() {
     const date = new Date();
@@ -65,6 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteTODO = document.getElementById("delete-todo");
     const deleteTODOs = document.getElementById("delete-todos");
     const selectMenu = document.getElementById("select-menu");
+    const selectAllTodo = document.getElementById("select-all");
+    const selectNoTodo = document.getElementById("select-none");
 
     // closes the editor upon calling.
     function closeEditor() {
@@ -88,40 +90,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Select menu event
-    // selectMenu.addEventListener("click", function(event) {
-    //     document.getElementById("select-todo").style.display = "block";
-    // });
-    // Array.from(selectMenu.children).forEach((selectMenuItem) => {
-    //     selectMenuItem.addEventListener("click", function(event) {
-    //         if(event.target.textContent === "All") {
-    //             // check all todos
-    //             todoObjList.forEach((todo) => {
-    //                 todo.checked = "true";
-    //             });
+    selectMenu.addEventListener("click", function (event) {
+        const selectTodo = document.getElementById("select-todo");
+        selectTodo.style.display = (selectTodo.style.display === "block") ? "none" : "block";
+    });
+    selectNoTodo.addEventListener("click", function () {
+        todoObjList.forEach((todo) => {
+            todo.checked = "false";
+        });
 
-    //             const todoElementCheckboxes = document.querySelectorAll(".todo>.checkbox");
-    //             todoElementCheckboxes.forEach((checkbox) => {
-    //                 checkbox.setAttribute("aria-checked", "true");
-    //             });
+        const todoElementCheckboxes = document.querySelectorAll(".todo>.checkbox");
+        todoElementCheckboxes.forEach((checkbox) => {
+            checkbox.setAttribute("aria-checked", "false");
+        });
 
-    //             document.getElementById("check-menu").style.display = "flex";
-    //             console.log("Click");
-    //         } else if(event.target.textContent === "None") {
-    //             // Unchecks all todo
-    //             todoObjList.forEach((todo) => {
-    //                 todo.checked = "false";
-    //             });
+        document.getElementById("check-menu").style.display = "none";
+        document.querySelector("#select-menu>div>.checkbox").setAttribute("aria-checked", "false");
+    });
+    selectAllTodo.addEventListener("click", function () {
+        todoObjList.forEach((todo) => {
+            todo.checked = "true";
+        });
 
-    //             const todoElementCheckboxes = document.querySelectorAll(".todo>.checkbox");
-    //             todoElementCheckboxes.forEach((checkbox) => {
-    //                 checkbox.setAttribute("aria-checked", "false");
-    //             });
+        const todoElementCheckboxes = document.querySelectorAll(".todo>.checkbox");
+        todoElementCheckboxes.forEach((checkbox) => {
+            checkbox.setAttribute("aria-checked", "true");
+        });
 
-    //             document.getElementById("check-menu").style.display = "none";
-    //             console.log("Click");
-    //         }
-    //     });
-    // });
+        document.getElementById("check-menu").style.display = "flex";
+        document.querySelector("#select-menu>div>.checkbox").setAttribute("aria-checked", "true");
+    });
 
     // Opens Editor for new Todo.
     composeTodo.addEventListener("click", function () {
@@ -181,13 +179,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const todoId = event.target.closest('.todo').getAttribute("data-id");
 
             const todoObj = todoObjList.find(todo => todo.id == todoId);
-            todoObj["checked"] = (todoObj["checked"] === "true")?"false":"true"; // toggles value
+            todoObj["checked"] = (todoObj["checked"] === "true") ? "false" : "true"; // toggles value
 
             event.target.setAttribute("aria-checked", todoObj["checked"]);
 
             if (todoObj["checked"] === "true") {
                 // show menu
                 document.getElementById("check-menu").style.display = "flex";
+                document.querySelector("#select-menu>div>.checkbox").setAttribute("aria-checked", "true");
             } else {
                 // check for every other todo objs if all them aren't checked.
                 let todoChecked = false;
@@ -201,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (!todoChecked) {
                     // Stop showing header menu.
                     document.getElementById("check-menu").style.display = "none";
+                    document.querySelector("#select-menu>div>.checkbox").setAttribute("aria-checked", "false");
                 }
             }
         });
@@ -244,13 +244,13 @@ document.addEventListener("DOMContentLoaded", function () {
     changeLabel.addEventListener("click", function () {
         const labelMenu = document.querySelector("#change-label>.label-menu");
         labelMenu.innerHTML = "";
-        labelMenu.style.display = (labelMenu.style.display === "none")?"block":"none";
+        labelMenu.style.display = (labelMenu.style.display === "none") ? "block" : "none";
 
-        labelList.forEach(function(label) {
+        labelList.forEach(function (label) {
             const labelItem = document.createElement("li");
             labelItem.textContent = label;
             labelMenu.appendChild(labelItem);
-            labelItem.addEventListener("click", function(event) {
+            labelItem.addEventListener("click", function (event) {
                 labelMenu.style.display = "none";
                 event.stopPropagation(); // Stop event propagation
 
@@ -266,27 +266,27 @@ document.addEventListener("DOMContentLoaded", function () {
     changeLabels.addEventListener("click", function () {
         const labelMenu = document.querySelector("#change-labels>.label-menu");
         labelMenu.innerHTML = "";
-        labelMenu.style.display = (labelMenu.style.display === "none")?"block":"none";
+        labelMenu.style.display = (labelMenu.style.display === "none") ? "block" : "none";
 
-        labelList.forEach(function(label) {
+        labelList.forEach(function (label) {
             const labelItem = document.createElement("li");
             labelItem.textContent = label;
             labelMenu.appendChild(labelItem);
-            labelItem.addEventListener("click", function(event) {
+            labelItem.addEventListener("click", function (event) {
                 labelMenu.style.display = "none";
                 event.stopPropagation(); // Stop event propagation
 
                 todoObjList.forEach((todo) => {
-                    if(todo.checked === "true") {
+                    if (todo.checked === "true") {
                         todo.tags = event.target.textContent;
                         todo.checked = "false";
                         document.querySelector(`.todo[data-id='${todo.id}']>.checkbox`).setAttribute("aria-checked", "false");
                     }
                 });
                 document.getElementById("check-menu").style.display = "none";
+                document.querySelector("#select-menu>div>.checkbox").setAttribute("aria-checked", "false");
             });
         });
-        console.log("Click");
     });
 
     // Edits the TODO
@@ -352,5 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 todoElement.remove();
             }
         });
+        document.getElementById("check-menu").style.display = "none";
+        document.querySelector("#select-menu>div>.checkbox").setAttribute("aria-checked", "false");
     });
 });
