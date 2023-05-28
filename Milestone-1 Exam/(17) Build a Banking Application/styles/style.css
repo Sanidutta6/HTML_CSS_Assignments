@@ -21,7 +21,7 @@ body {
     width: 12%;
     height: 100vh;
     padding: 1rem 0.6rem;
-    background-color: rgb(17,24,39);
+    background-color: rgb(17, 24, 39);
     color: white;
     display: flex;
     flex-direction: column;
@@ -53,13 +53,15 @@ body {
     padding: 1rem;
 }
 
-/* Dashboard view */
-#dashboard-view {
-    display: none; /*block*/
+h1 {
+    margin-bottom: 2rem;
 }
 
-#dashboard-view>h1 {
-    margin-bottom: 2rem;
+/* Dashboard view */
+#dashboard-view {
+    /*block*/
+    display: block;
+    overflow-x: auto;
 }
 
 .card-wrapper {
@@ -83,4 +85,104 @@ body {
 #controls-view {
     /* block */
     display: none;
+    overflow-x: auto;
+}
+
+/* Transactions */
+#transaction-view {
+    /* block */
+    display: none;
+    overflow-x: auto;
+}
+
+/* Grievance */
+#grievance-view {
+    /* block */
+    display: none;
+}
+
+#grievance-view>form {
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 1rem;
+}
+
+.input-group {
+    width: 30%;
+}
+
+.input-group>label {
+    display: block;
+}
+
+.input-group>input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.2rem 1rem;
+}
+
+input[type="reset"],
+input[type="submit"] {
+    padding: 0.2rem 0.4rem;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#description {
+    height: 4rem;
+    resize: none;
+}
+
+/* FAQ */
+#faq-view {
+    display: none;
+}
+
+.faq-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.accordion {
+    max-height: 63vh;
+    overflow-x: auto;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+}
+
+.accordion-header {
+    background-color: rgb(198 198 198);
+    border-radius: 0.6rem;
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+.accordion-content {
+    padding: 10px;
+    display: none;
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
 }

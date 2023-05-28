@@ -112,8 +112,145 @@
                 </form>
                 <div id="display"></div>
             </div>
+
             <!-- Grievance view -->
+            <div id="grievance-view">
+                <h1>Grievance</h1>
+                <form>
+                    <div class="input-group">
+                        <p>Existing Relation with MyBank?</p>
+                        <label>
+                            <input type="radio" name="option" value="yes" checked />
+                            Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="option" value="no" />
+                            No
+                        </label>
+                    </div>
+                    <div class="input-group">
+                        <label for="consumer-id">Consumer ID</label>
+                        <input type="text" placeholder="Enter Consumer ID" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="product">Select Service/Product</label>
+                        <select name="product" id="product" required>
+                            <option value="" disabled selected>Select Service/Product</option>
+                            <option value="Net Banking">Net Banking</option>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="Debit Card">Debit Card</option>
+                            <option value="UPI">UPI</option>
+                            <option value="ATM">ATM</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" placeholder="Describe your issue"
+                            required></textarea>
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" value="Submit" />
+                        <input type="reset" value="Reset" />
+                    </div>
+                </form>
+            </div>
+
             <!-- FAQ view -->
+            <div id="faq-view">
+                <h1>FAQs</h1>
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq">
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">How do I open a bank account?</div>
+                                <div class="accordion-content">
+                                    <p>To open a bank account, you can visit any of our branches and provide the
+                                        required documents such as identification proof and address proof. Our staff
+                                        will assist you with the account opening process.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">What is the minimum balance requirement?</div>
+                                <div class="accordion-content">
+                                    <p>The minimum balance requirement varies based on the type of account you choose.
+                                        Please refer to our account types and associated fees for detailed information
+                                        on minimum balance requirements.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">What documents do I need to open a bank account?</div>
+                                <div class="accordion-content">
+                                    <p>Typically, you will need documents such as a valid ID proof (passport, driver's
+                                        license, etc.), proof of address (utility bill, bank statement, etc.), and
+                                        sometimes additional documents like photographs and a completed application
+                                        form.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">What types of bank accounts are available?</div>
+                                <div class="accordion-content">
+                                    <p>Banks offer various types of accounts, including savings accounts, current
+                                        accounts, fixed deposit accounts, and specialized accounts like student accounts
+                                        or senior citizen accounts. Each account has its own features and benefits.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">How do I deposit money into my bank account?</div>
+                                <div class="accordion-content">
+                                    <p>You can deposit money into your bank account by visiting a bank branch and
+                                        filling out a deposit slip with the required details. You can also deposit money
+                                        through electronic transfers, mobile banking, or using an ATM, depending on the
+                                        bank's services.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">How can I withdraw money from my bank account?</div>
+                                <div class="accordion-content">
+                                    <p>You can withdraw money from your bank account by visiting a bank branch and
+                                        filling out a withdrawal slip. You can also withdraw money through ATMs using
+                                        your debit card, or make electronic transfers or payments as per the bank's
+                                        facilities.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">What is the difference between a debit card and a credit
+                                    card?</div>
+                                <div class="accordion-content">
+                                    <p>A debit card allows you to spend money from your own bank account, while a credit
+                                        card allows you to borrow money from the bank with the expectation of paying it
+                                        back later, often with added interest charges.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">How do I check my account balance?</div>
+                                <div class="accordion-content">
+                                    <p>You can check your account balance through various channels such as online
+                                        banking, mobile banking apps, by visiting an ATM, or by contacting your bank's
+                                        customer service helpline.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <div class="accordion-header">How can I transfer money between bank accounts?</div>
+                                <div class="accordion-content">
+                                    <p>You can transfer money between bank accounts through options like online banking,
+                                        mobile banking apps, electronic fund transfers, or by visiting a bank branch and
+                                        initiating a transfer with the help of a bank representative.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
