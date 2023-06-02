@@ -147,6 +147,11 @@ h1 {
     transform: scale(1.1);
 }
 
+#display-body {
+    max-height: 36rem;
+    overflow-y: auto;
+}
+
 #display-body .input-group,
 #display-body .output-group {
     margin-bottom: 1rem;
@@ -198,12 +203,23 @@ h1 {
     display: none;
 }
 
+#balance-inquiry-display {
+    display: none;
+}
+
+#balance-inquiry-display>div {
+    padding: 0.3rem 0.5rem;
+    box-shadow: inset 0 -1px 0 0 rgb(0 0 0 / 15%);
+}
+
 #list-display {
     display: none;
 }
+
 #list-display>ul {
     list-style: none;
 }
+
 #list-display>ul>li {
     padding: 0.3rem 0.5rem;
     box-shadow: inset 0 -1px 0 0 rgb(0 0 0 / 15%);
@@ -211,9 +227,10 @@ h1 {
     justify-content: space-between;
     align-items: center;
 }
-#list-display>ul>li:hover {
-    transform: scale(1.1);
-}
+
+/* #list-display>ul>li:hover {
+    transform: scale(1.05);
+} */
 
 /* Grievance */
 #grievance-view {

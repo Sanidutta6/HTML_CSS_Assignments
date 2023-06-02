@@ -231,13 +231,16 @@ document.addEventListener("DOMContentLoaded", function () {
         displayHeaderText.innerText = "Remove Customer";
         document.getElementById("customer-account-number").style.display = "block";
         const searchBtn = document.querySelector("#customer-account-number>input[type='submit']");
-        searchBtn.addEventListener("click", function(event) {
+        searchBtn.addEventListener("click", function (event) {
             event.preventDefault();
             const accountNo = parseInt(document.querySelector("#customer-account-number>.input-group>input").value);
             const desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
-            if(!desiredCustomer) {
+            if (!desiredCustomer) {
                 // red the border-bottom
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(255, 0, 0)";
                 return;
+            } else {
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(0, 0, 0)";
             }
 
             document.getElementById("output-account-no").value = desiredCustomer["account no"];
@@ -257,13 +260,16 @@ document.addEventListener("DOMContentLoaded", function () {
         displayHeaderText.innerText = "Show Customer";
         document.getElementById("customer-account-number").style.display = "block";
         const searchBtn = document.querySelector("#customer-account-number>input[type='submit']");
-        searchBtn.addEventListener("click", function(event) {
+        searchBtn.addEventListener("click", function (event) {
             event.preventDefault();
             const accountNo = parseInt(document.querySelector("#customer-account-number>.input-group>input").value);
             const desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
-            if(!desiredCustomer) {
+            if (!desiredCustomer) {
                 // red the border-bottom
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(255, 0, 0)";
                 return;
+            } else {
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(0, 0, 0)";
             }
 
             document.getElementById("output-account-no").value = desiredCustomer["account no"];
@@ -284,23 +290,27 @@ document.addEventListener("DOMContentLoaded", function () {
         displayHeaderText.innerText = "Debit / Credit";
         document.getElementById("customer-account-number").style.display = "block";
         const searchBtn = document.querySelector("#customer-account-number>input[type='submit']");
-        searchBtn.addEventListener("click", function(event) {
+        searchBtn.addEventListener("click", function (event) {
             event.preventDefault();
             const accountNo = parseInt(document.querySelector("#customer-account-number>.input-group>input").value);
             desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
-            if(!desiredCustomer) {
+            if (!desiredCustomer) {
                 // red the border-bottom
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(255, 0, 0)";
                 return;
+            } else {
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(0, 0, 0)";
             }
 
             document.getElementById("customer-account-number").style.display = "none";
             document.getElementById("debit-credit-display").style.display = "block";
+            document.querySelector("#customer-account-number>.input-group>input").value = "";
         });
 
-        document.querySelector("#debit-credit-display>input[value='Credit']").addEventListener("click", function() {
+        document.querySelector("#debit-credit-display>input[value='Credit']").addEventListener("click", function () {
             console.log(desiredCustomer);
             const amount = parseInt(document.getElementById("amount").value);
-            if(amount < 10) {
+            if (amount < 10) {
                 return;
             }
             const transaction = {
@@ -311,11 +321,12 @@ document.addEventListener("DOMContentLoaded", function () {
             desiredCustomer["balance"] += amount;
             desiredCustomer["transactions"].push(transaction);
             document.getElementById("debit-credit-display").style.display = "none";
+            onClickDisplay.style.zIndex = "-1";
         });
-        document.querySelector("#debit-credit-display>input[value='Debit']").addEventListener("click", function() {
+        document.querySelector("#debit-credit-display>input[value='Debit']").addEventListener("click", function () {
             console.log(desiredCustomer);
             const amount = parseInt(document.getElementById("amount").value);
-            if(amount >= desiredCustomer["balance"]) {
+            if (amount >= desiredCustomer["balance"]) {
                 return;
             }
             const transaction = {
@@ -326,6 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
             desiredCustomer["balance"] -= amount;
             desiredCustomer["transactions"].push(transaction);
             document.getElementById("debit-credit-display").style.display = "none";
+            onClickDisplay.style.zIndex = "-1";
         });
     });
 
@@ -333,12 +345,59 @@ document.addEventListener("DOMContentLoaded", function () {
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Balance Inquiry";
         document.getElementById("customer-account-number").style.display = "block";
+        const searchBtn = document.querySelector("#customer-account-number>input[type='submit']");
+        searchBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            const accountNo = parseInt(document.querySelector("#customer-account-number>.input-group>input").value);
+            const desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
+            if (!desiredCustomer) {
+                // red the border-bottom
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(255, 0, 0)";
+                return;
+            } else {
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(0, 0, 0)";
+            }
+
+            document.getElementById("customer-account-number").style.display = "none";
+            document.querySelector("#customer-account-number>.input-group>input").value = "";
+            document.getElementById("balance-inquiry-display").style.display = "block";
+            document.querySelector("#balance-inquiry-display>div:nth-child(1)").innerHTML = `<b>Name:</b> ${desiredCustomer["name"]}`;
+            document.querySelector("#balance-inquiry-display>div:nth-child(2)").innerHTML = `<b>Account No:</b> ${desiredCustomer["account no"]}`;
+            document.querySelector("#balance-inquiry-display>div:nth-child(3)").innerHTML = `<b>Balance:</b> ${desiredCustomer["balance"]}`;
+        });
     });
 
     transactionHistory.addEventListener("click", function () {
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Transaction History";
         document.getElementById("customer-account-number").style.display = "block";
+        const searchBtn = document.querySelector("#customer-account-number>input[type='submit']");
+        searchBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            const accountNo = parseInt(document.querySelector("#customer-account-number>.input-group>input").value);
+            const desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
+            if (!desiredCustomer) {
+                // red the border-bottom
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(255, 0, 0)";
+                return;
+            } else {
+                document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(0, 0, 0)";
+            }
+
+            document.getElementById("customer-account-number").style.display = "none";
+            document.querySelector("#customer-account-number>.input-group>input").value = "";
+            document.getElementById("list-display").style.display = "block";
+
+            const list = document.createElement("ul");
+            const desiredTransactions = desiredCustomer["transactions"];
+            for (let i = 0; i < desiredTransactions.length; i++) {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `<div>${desiredTransactions[i]["time"]}</div> <div>${desiredTransactions[i]["type"]}</div> <div>${desiredTransactions[i]["amount"]}</div>`;
+                list.appendChild(listItem);
+            }
+            document.getElementById("list-display").innerHTML = "";
+            document.getElementById("list-display").appendChild(list);
+        });
     });
 
     showCustomerList.addEventListener("click", function () {
@@ -346,16 +405,16 @@ document.addEventListener("DOMContentLoaded", function () {
         displayHeaderText.innerText = "Show Customer List";
         document.getElementById("list-display").style.display = "block";
         const list = document.createElement("ul");
-    
+
         for (let i = 0; i < customerList.length; i++) {
             const listItem = document.createElement("li");
             listItem.innerHTML = `<div>${customerList[i]["account no"]}</div><div>${customerList[i]["name"]}</div>`;
             listItem.setAttribute("data-id", customerList[i]["account no"]);
             list.appendChild(listItem);
-    
+
             listItem.addEventListener("click", function (event) {
                 let accountNo = "";
-                if(event.target.tagName === "DIV") {
+                if (event.target.tagName === "DIV") {
                     // find nearest parent
                     accountNo = event.target.parentNode.getAttribute("data-id");
                 } else {
@@ -367,7 +426,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     return customer["account no"] === parseInt(accountNo);
                 });
                 const list = document.createElement("ul");
-    
+
                 for (let key in selectedCustomer) {
                     if (key !== "transactions") {
                         const listItem = document.createElement("li");
@@ -389,6 +448,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("add-customer-display").style.display = "none";
         document.getElementById("customer-info-display").style.display = "none";
         document.getElementById("debit-credit-display").style.display = "none";
+        document.getElementById("balance-inquiry-display").style.display = "none";
         document.getElementById("list-display").innerHTML = "";
         document.getElementById("list-display").style.display = "none";
     });
