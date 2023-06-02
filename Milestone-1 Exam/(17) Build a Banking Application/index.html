@@ -107,12 +107,15 @@
                         <div id="transaction-history" class="card">
                             <h2>Transaction History</h2>
                         </div>
+                        <div id="show-customer-list" class="card">
+                            <h2>Show Customer List</h2>
+                        </div>
                     </div>
                 </div>
                 <div id="on-click-display">
                     <div id="display">
                         <div id="display-header">
-                            <h3>Add Customer</h3>
+                            <h3></h3>
                             <img id="cancel-display" src="./assets/cancel.png" alt="">
                         </div>
                         <div id="display-body">
@@ -123,8 +126,8 @@
                                 </div>
                                 <input type="submit" value="Search" />
                             </form>
-                            <!-- Customer display template -->
-                            <form id="customer-display-template" action="">
+                            <!-- Customer display -->
+                            <form id="customer-display" action="">
                                 <div class="input-group">
                                     <label for="name">Name</label>
                                     <input type="text" id="name" placeholder="Enter Your Name" autofocus />
@@ -134,16 +137,27 @@
                                     <input type="text" id="address" placeholder="Enter Your Address" />
                                 </div>
                                 <div class="input-group">
+                                    <label for="dob">Address</label>
+                                    <input type="date" id="dob" placeholder="Enter Your DOB" />
+                                </div>
+                                <div class="input-group">
                                     <label for="phone-no">Phone No.</label>
                                     <input type="text" id="phone-no" placeholder="Enter Your Phone No." />
                                 </div>
                                 <div class="input-group">
-                                    <label for="deposit">Balance</label>
+                                    <label for="balance">Balance</label>
                                     <input type="number" id="balance" placeholder="Please Keep Minimum Balance $10" />
                                 </div>
                                 <input type="submit" value="Submit">
                             </form>
                             <!-- Customer display template ends here -->
+                            <!-- Customer list display -->
+                            <div id="customer-list-display">
+                            </div>
+                            <!-- Customer list display -->
+                            <!-- general display -->
+                            <div id="general-display">
+                            </div>
                         </div>
                     </div>
                 </div>
