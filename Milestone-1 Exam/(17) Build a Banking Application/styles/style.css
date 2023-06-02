@@ -50,7 +50,8 @@ body {
 
 #right {
     width: 88%;
-    padding: 1rem;
+    padding: 1rem 4rem;
+    background: rgb(21, 144, 176) url("../assets/img-dashboard.png") no-repeat center center/contain;
 }
 
 h1 {
@@ -66,34 +67,124 @@ h1 {
 
 .card-wrapper {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
 .card {
-    width: 15rem;
-    padding: 1rem 1.5rem;
-    border: 1px solid black;
+    width: 18rem;
+    height: 9rem;
+    padding: 2rem 2.5rem;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(0, 95, 120);
     border-radius: 0.9rem;
-    text-align: center;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .card>h2 {
     font-weight: 500;
+    text-align: center;
 }
 
 /* Controls-view */
 #controls-view {
     /* block */
+    height: 100%;
     display: none;
     overflow-x: auto;
 }
 
-/* Transactions */
-#transaction-view {
+#controls-view-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#on-click-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: rgba(128, 128, 128, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#display {
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem 2rem;
+    border-radius: 0.6rem;
+}
+
+#display-header {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#cancel-display {
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+#cancel-display:hover {
+    transform: scale(1.1);
+}
+
+#customer-account-number-template {
     /* block */
     display: none;
-    overflow-x: auto;
 }
+
+#customer-display-template {
+    /* block */
+    display: none;
+}
+
+#display-body .input-group {
+    margin-bottom: 1rem;
+}
+
+#display-body .input-group>label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#display-body .input-group>input {
+    width: 100%;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    font-size: 15px;
+}
+
+#display-body input[type="submit"] {
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: rgb(20, 110, 246);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#display-body input[type="submit"]:hover {
+    transform: scale(1.1);
+}
+
 
 /* Grievance */
 #grievance-view {
@@ -105,27 +196,28 @@ h1 {
     padding-left: 2rem;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     gap: 1rem;
+    border-radius: 0.9rem;
+    background-color: rgb(0, 95, 120);
 }
 
-.input-group {
+#grievance-view .input-group {
     width: 30%;
 }
 
-.input-group>label {
+#grievance-view .input-group>label {
     display: block;
 }
 
-.input-group>input[type="text"],
+#grievance-view .input-group>input[type="text"],
 textarea,
 select {
     width: 100%;
     padding: 0.2rem 1rem;
 }
 
-input[type="reset"],
-input[type="submit"] {
+#grievance-view input[type="reset"],
+#grievance-view input[type="submit"] {
     padding: 0.2rem 0.4rem;
     font-size: 15px;
     font-weight: 500;
@@ -145,6 +237,8 @@ input[type="submit"] {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    border-radius: 0.9rem;
+    background-color: rgb(0, 95, 120);
 }
 
 .faq-section h2 {
