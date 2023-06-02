@@ -161,8 +161,8 @@ document.addEventListener("DOMContentLoaded", function () {
     addCustomer.addEventListener("click", function () {
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Add Customer";
-        document.getElementById("customer-display").style.display = "block";
-        document.querySelector("#customer-display>input[type='submit']").addEventListener("click", function (event) {
+        document.getElementById("add-customer-display").style.display = "block";
+        document.querySelector("#add-customer-display>input[type='submit']").addEventListener("click", function (event) {
             event.preventDefault();
             // Add new customer object
             const customer = {};
@@ -221,81 +221,175 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("balance").value = "";
             customerList.push(customer);
             onClickDisplay.style.zIndex = "-1";
-            document.getElementById("customer-display").style.display = "none";
+            document.getElementById("add-customer-display").style.display = "none";
+            console.log(customerList);
         });
-        console.log("Click");
     });
 
     removeCustomer.addEventListener("click", function () {
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Remove Customer";
-        document.getElementById("customer-account-number-template").style.display = "block";
-        console.log("Click");
+        document.getElementById("customer-account-number").style.display = "block";
+        const searchBtn = document.querySelector("#customer-account-number>input[type='submit']");
+        searchBtn.addEventListener("click", function(event) {
+            event.preventDefault();
+            const accountNo = parseInt(document.querySelector("#customer-account-number>.input-group>input").value);
+            const desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
+            if(!desiredCustomer) {
+                // red the border-bottom
+                return;
+            }
+
+            document.getElementById("output-account-no").value = desiredCustomer["account no"];
+            document.getElementById("output-name").value = desiredCustomer["name"];
+            document.getElementById("output-address").value = desiredCustomer["address"];
+            document.getElementById("output-dob").value = desiredCustomer["dob"];
+            document.getElementById("output-phone-no").value = desiredCustomer["phone no"];
+            document.getElementById("output-DOO").value = desiredCustomer["opening date"];
+
+            document.getElementById("customer-account-number").style.display = "none";
+            document.getElementById("customer-info-display").style.display = "block";
+        });
     });
 
     showCustomer.addEventListener("click", function () {
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Show Customer";
-        document.getElementById("customer-account-number-template").style.display = "block";
-        console.log("Click");
+        document.getElementById("customer-account-number").style.display = "block";
+        const searchBtn = document.querySelector("#customer-account-number>input[type='submit']");
+        searchBtn.addEventListener("click", function(event) {
+            event.preventDefault();
+            const accountNo = parseInt(document.querySelector("#customer-account-number>.input-group>input").value);
+            const desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
+            if(!desiredCustomer) {
+                // red the border-bottom
+                return;
+            }
+
+            document.getElementById("output-account-no").value = desiredCustomer["account no"];
+            document.getElementById("output-name").value = desiredCustomer["name"];
+            document.getElementById("output-address").value = desiredCustomer["address"];
+            document.getElementById("output-dob").value = desiredCustomer["dob"];
+            document.getElementById("output-phone-no").value = desiredCustomer["phone no"];
+            document.getElementById("output-DOO").value = desiredCustomer["opening date"];
+
+            document.getElementById("customer-account-number").style.display = "none";
+            document.getElementById("customer-info-display").style.display = "block";
+        });
     });
 
     debitCredit.addEventListener("click", function () {
+        let desiredCustomer = {};
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Debit / Credit";
-        document.getElementById("customer-account-number-template").style.display = "block";
-        console.log("Click");
+        document.getElementById("customer-account-number").style.display = "block";
+        const searchBtn = document.querySelector("#customer-account-number>input[type='submit']");
+        searchBtn.addEventListener("click", function(event) {
+            event.preventDefault();
+            const accountNo = parseInt(document.querySelector("#customer-account-number>.input-group>input").value);
+            desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
+            if(!desiredCustomer) {
+                // red the border-bottom
+                return;
+            }
+
+            document.getElementById("customer-account-number").style.display = "none";
+            document.getElementById("debit-credit-display").style.display = "block";
+        });
+
+        document.querySelector("#debit-credit-display>input[value='Credit']").addEventListener("click", function() {
+            console.log(desiredCustomer);
+            const amount = parseInt(document.getElementById("amount").value);
+            if(amount < 10) {
+                return;
+            }
+            const transaction = {
+                "amount": amount,
+                "type": "credit",
+                "time": new Date()
+            }
+            desiredCustomer["balance"] += amount;
+            desiredCustomer["transactions"].push(transaction);
+            document.getElementById("debit-credit-display").style.display = "none";
+        });
+        document.querySelector("#debit-credit-display>input[value='Debit']").addEventListener("click", function() {
+            console.log(desiredCustomer);
+            const amount = parseInt(document.getElementById("amount").value);
+            if(amount >= desiredCustomer["balance"]) {
+                return;
+            }
+            const transaction = {
+                "amount": amount,
+                "type": "debit",
+                "time": new Date()
+            }
+            desiredCustomer["balance"] -= amount;
+            desiredCustomer["transactions"].push(transaction);
+            document.getElementById("debit-credit-display").style.display = "none";
+        });
     });
 
     balanceInquiry.addEventListener("click", function () {
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Balance Inquiry";
-        document.getElementById("customer-account-number-template").style.display = "block";
-        console.log("Click");
+        document.getElementById("customer-account-number").style.display = "block";
     });
 
     transactionHistory.addEventListener("click", function () {
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Transaction History";
-        document.getElementById("customer-account-number-template").style.display = "block";
-        console.log("Click");
+        document.getElementById("customer-account-number").style.display = "block";
     });
 
     showCustomerList.addEventListener("click", function () {
         onClickDisplay.style.zIndex = "1";
         displayHeaderText.innerText = "Show Customer List";
-        document.getElementById("general-display").style.display = "block";
+        document.getElementById("list-display").style.display = "block";
         const list = document.createElement("ul");
+    
         for (let i = 0; i < customerList.length; i++) {
             const listItem = document.createElement("li");
             listItem.innerHTML = `<div>${customerList[i]["account no"]}</div><div>${customerList[i]["name"]}</div>`;
             listItem.setAttribute("data-id", customerList[i]["account no"]);
             list.appendChild(listItem);
-
+    
             listItem.addEventListener("click", function (event) {
-                const accountNo = event.target.getAttribute("data-id");
-                const customer = customerList.find((customer) => customer["account no"] === accountNo);
-                // document.getElementById("general-display").style.display = "none";
-                list.remove();
+                let accountNo = "";
+                if(event.target.tagName === "DIV") {
+                    // find nearest parent
+                    accountNo = event.target.parentNode.getAttribute("data-id");
+                } else {
+                    accountNo = event.target.getAttribute("data-id");
+                }
+                console.log(accountNo);
+                const selectedCustomer = customerList.find((customer) => {
+                    console.log(`${typeof customer["account no"]}: ${typeof accountNo}`);
+                    return customer["account no"] === parseInt(accountNo);
+                });
                 const list = document.createElement("ul");
-                for (let key in customer) {
+    
+                for (let key in selectedCustomer) {
                     if (key !== "transactions") {
                         const listItem = document.createElement("li");
-                        listItem.innerHTML = `<div>${customer["account no"]}</div><div>${customer["name"]}</div>`;
+                        listItem.innerHTML = `<div><b>${key}</b>: ${selectedCustomer[key]}</div>`;
                         list.appendChild(listItem);
                     }
                 }
-                document.getElementById("general-display").appendChild(list);
+                document.getElementById("list-display").innerHTML = "";
+                document.getElementById("list-display").appendChild(list);
             });
         }
-        document.getElementById("general-display").appendChild(list);
+        document.getElementById("list-display").innerHTML = "";
+        document.getElementById("list-display").appendChild(list);
     });
 
     cancelDisplay.addEventListener("click", function () {
         onClickDisplay.style.zIndex = "-1";
-        document.getElementById("customer-display").style.display = "none";
-        document.getElementById("customer-account-number-template").style.display = "none";
-        document.getElementById("customer-list-display").style.display = "none";
-        document.getElementById("general-display").style.display = "none";
+        document.getElementById("customer-account-number").style.display = "none";
+        document.getElementById("add-customer-display").style.display = "none";
+        document.getElementById("customer-info-display").style.display = "none";
+        document.getElementById("debit-credit-display").style.display = "none";
+        document.getElementById("list-display").innerHTML = "";
+        document.getElementById("list-display").style.display = "none";
     });
 });

@@ -147,26 +147,19 @@ h1 {
     transform: scale(1.1);
 }
 
-#customer-account-number-template {
-    /* block */
-    display: none;
-}
-
-#customer-display-template {
-    /* block */
-    display: none;
-}
-
-#display-body .input-group {
+#display-body .input-group,
+#display-body .output-group {
     margin-bottom: 1rem;
 }
 
-#display-body .input-group>label {
+#display-body .input-group>label,
+#display-body .output-group>label {
     font-size: 12px;
     font-weight: 600;
 }
 
-#display-body .input-group>input {
+#display-body .input-group>input,
+#display-body .output-group>input {
     width: 100%;
     padding: 0.3rem 0.6rem;
     border: none;
@@ -189,25 +182,36 @@ h1 {
     transform: scale(1.1);
 }
 
-#customer-display {
+#customer-account-number {
     display: none;
 }
 
-#general-display {
+#add-customer-display {
     display: none;
 }
 
-#general-display>ul {
+#customer-info-display {
+    display: none;
+}
+
+#debit-credit-display {
+    display: none;
+}
+
+#list-display {
+    display: none;
+}
+#list-display>ul {
     list-style: none;
 }
-#general-display>ul>li {
+#list-display>ul>li {
     padding: 0.3rem 0.5rem;
     box-shadow: inset 0 -1px 0 0 rgb(0 0 0 / 15%);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-#general-display>ul>li:hover {
+#list-display>ul>li:hover {
     transform: scale(1.1);
 }
 
