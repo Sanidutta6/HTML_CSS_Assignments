@@ -148,6 +148,7 @@ h1 {
 }
 
 #display-body {
+    min-height: 6rem;
     max-height: 36rem;
     overflow-y: auto;
 }
@@ -183,10 +184,6 @@ h1 {
     font-weight: 500;
 }
 
-#display-body input[type="submit"]:hover {
-    transform: scale(1.1);
-}
-
 #customer-account-number {
     display: none;
 }
@@ -196,6 +193,10 @@ h1 {
 }
 
 #customer-info-display {
+    display: none;
+}
+
+#customer-info-display>input[type="submit"] {
     display: none;
 }
 
@@ -228,9 +229,10 @@ h1 {
     align-items: center;
 }
 
-/* #list-display>ul>li:hover {
-    transform: scale(1.05);
-} */
+#list-display>ul>li:hover {
+    box-shadow: inset 1px 0 0 rgb(255 255 255 / 20%), inset -1px 0 0 rgb(255 255 255 / 20%), 0 0 4px 0 rgb(95 99 104 / 60%), 0 0 6px 2px rgb(95 99 104 / 60%);
+    z-index: 2;
+}
 
 /* Grievance */
 #grievance-view {

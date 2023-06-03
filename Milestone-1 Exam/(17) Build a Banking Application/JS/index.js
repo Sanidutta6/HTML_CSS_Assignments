@@ -1,18 +1,3 @@
-// const customerObj = {
-//     "account no": 12 digit integer,
-//     "name": String,
-//     "address": String,
-//     "phone no": "phone number"
-//     "balance": integer
-//     "transaction": [array of trasaction obj]
-// }
-
-// const transactionObj = {
-//     "time": "time",
-//     "type": "debit" || "credit",
-//     "amount": integer,
-// }
-
 function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -55,7 +40,7 @@ function generateUser(userNo = 10) {
         customer["balance"] = 0;
         customer["transactions"] = [];
 
-        const firstTransaction = [];
+        const firstTransaction = {};
         firstTransaction["time"] = openingDate.toISOString();
         firstTransaction["type"] = "credit";
         firstTransaction["amount"] = generateRandomNumber(10, 1000);
@@ -116,6 +101,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const cancelDisplay = document.getElementById("cancel-display");
     const displayHeaderText = document.querySelector("#display-header>h3");
 
+    const totalAmount = document.querySelector("#dashboard-view>.card-wrapper>.card:nth-child(1)>h2");
+    const totalUsers = document.querySelector("#dashboard-view>.card-wrapper>.card:nth-child(2)>h2");
+    const totalTransactions = document.querySelector("#dashboard-view>.card-wrapper>.card:nth-child(3)>h2");
+
+    function updatedDashboardInfo() {
+        totalAmount.innerHTML = `$${customerList.reduce((prev, curr) => prev + curr["balance"], 0)}`;
+        totalUsers.innerHTML = `${customerList.length}`;
+        totalTransactions.innerHTML = `${customerList.reduce((prev, curr) => prev + curr["transactions"].length, 0)}`;
+    }
+
+    updatedDashboardInfo();
+
     const accordionItems = document.querySelectorAll('.accordion-item');
     accordionItems.forEach(item => {
         const header = item.querySelector('.accordion-header');
@@ -126,36 +123,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let prevView = dashboardView;
 
-    dashboard.addEventListener("click", function () {
-        if (prevView !== dashboardView) {
+    function showView(view) {
+        if (prevView !== view) {
             prevView.style.display = "none";
-            dashboardView.style.display = "block";
-            prevView = dashboardView;
+            view.style.display = "block";
+            prevView = view;
         }
+    }
+
+    dashboard.addEventListener("click", function () {
+        showView(dashboardView);
     });
 
     controls.addEventListener("click", function () {
-        if (prevView !== controlsView) {
-            prevView.style.display = "none";
-            controlsView.style.display = "block";
-            prevView = controlsView;
-        }
+        showView(controlsView);
     });
 
     grievance.addEventListener("click", function () {
-        if (prevView !== grievanceView) {
-            prevView.style.display = "none";
-            grievanceView.style.display = "block";
-            prevView = grievanceView;
-        }
+        showView(grievanceView);
     });
 
     faq.addEventListener("click", function () {
-        if (prevView !== faqView) {
-            prevView.style.display = "none";
-            faqView.style.display = "block";
-            prevView = faqView;
-        }
+        showView(faqView);
     });
 
     addCustomer.addEventListener("click", function () {
@@ -222,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
             customerList.push(customer);
             onClickDisplay.style.zIndex = "-1";
             document.getElementById("add-customer-display").style.display = "none";
-            console.log(customerList);
+            updatedDashboardInfo();
         });
     });
 
@@ -251,8 +240,14 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("output-DOO").value = desiredCustomer["opening date"];
 
             document.getElementById("customer-account-number").style.display = "none";
+            document.querySelector("#customer-account-number>.input-group>input").value = "";
             document.getElementById("customer-info-display").style.display = "block";
-        });
+            document.querySelector("#customer-info-display>input[value='Remove']").style.display = "inline";
+        }, { once: true});
+
+        document.querySelector("#customer-info-display>input[value='Remove']").addEventListener("click", function() {
+            console.log("Removed");
+        }, { once: true});
     });
 
     showCustomer.addEventListener("click", function () {
@@ -280,8 +275,32 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("output-DOO").value = desiredCustomer["opening date"];
 
             document.getElementById("customer-account-number").style.display = "none";
+            document.querySelector("#customer-account-number>.input-group>input").value = "";
             document.getElementById("customer-info-display").style.display = "block";
-        });
+            document.querySelector("#customer-info-display>input[value='Edit']").style.display = "inline";
+        }, { once: true});
+
+        document.querySelector("#customer-info-display>input[value='Edit']").addEventListener("click", function() {
+            document.getElementById("output-name").disabled = false;
+            document.getElementById("output-address").disabled = false;
+            document.getElementById("output-dob").disabled = false;
+            document.getElementById("output-phone-no").disabled = false;
+
+            document.querySelector("#customer-info-display>input[value='Edit']").style.display = "none";
+            document.querySelector("#customer-info-display>input[value='Update']").style.display = "inline";
+
+            console.log("Edit");
+        }, { once: true});
+
+        document.querySelector("#customer-info-display>input[value='Update']").addEventListener("click", function() {
+            document.getElementById("output-name").disabled = true;
+            document.getElementById("output-address").disabled = true;
+            document.getElementById("output-dob").disabled = true;
+            document.getElementById("output-phone-no").disabled = true;
+            document.querySelector("#customer-info-display>input[value='Update']").style.display = "none";
+
+            console.log("Update");
+        }, { once: true});
     });
 
     debitCredit.addEventListener("click", function () {
@@ -305,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("customer-account-number").style.display = "none";
             document.getElementById("debit-credit-display").style.display = "block";
             document.querySelector("#customer-account-number>.input-group>input").value = "";
-        });
+        }, { once: true});
 
         document.querySelector("#debit-credit-display>input[value='Credit']").addEventListener("click", function () {
             console.log(desiredCustomer);
@@ -322,6 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
             desiredCustomer["transactions"].push(transaction);
             document.getElementById("debit-credit-display").style.display = "none";
             onClickDisplay.style.zIndex = "-1";
+            updatedDashboardInfo();
         });
         document.querySelector("#debit-credit-display>input[value='Debit']").addEventListener("click", function () {
             console.log(desiredCustomer);
@@ -338,6 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
             desiredCustomer["transactions"].push(transaction);
             document.getElementById("debit-credit-display").style.display = "none";
             onClickDisplay.style.zIndex = "-1";
+            updatedDashboardInfo();
         });
     });
 
@@ -364,7 +385,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#balance-inquiry-display>div:nth-child(1)").innerHTML = `<b>Name:</b> ${desiredCustomer["name"]}`;
             document.querySelector("#balance-inquiry-display>div:nth-child(2)").innerHTML = `<b>Account No:</b> ${desiredCustomer["account no"]}`;
             document.querySelector("#balance-inquiry-display>div:nth-child(3)").innerHTML = `<b>Balance:</b> ${desiredCustomer["balance"]}`;
-        });
+        }, { once: true});
     });
 
     transactionHistory.addEventListener("click", function () {
@@ -397,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             document.getElementById("list-display").innerHTML = "";
             document.getElementById("list-display").appendChild(list);
-        });
+        }, { once: true});
     });
 
     showCustomerList.addEventListener("click", function () {
@@ -420,9 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     accountNo = event.target.getAttribute("data-id");
                 }
-                console.log(accountNo);
                 const selectedCustomer = customerList.find((customer) => {
-                    console.log(`${typeof customer["account no"]}: ${typeof accountNo}`);
                     return customer["account no"] === parseInt(accountNo);
                 });
                 const list = document.createElement("ul");
@@ -447,6 +466,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("customer-account-number").style.display = "none";
         document.getElementById("add-customer-display").style.display = "none";
         document.getElementById("customer-info-display").style.display = "none";
+        document.querySelector("#customer-info-display>input[value='Edit']").style.display = "none";
+        document.querySelector("#customer-info-display>input[value='Update']").style.display = "none";
+        document.querySelector("#customer-info-display>input[value='Remove']").style.display = "none";
         document.getElementById("debit-credit-display").style.display = "none";
         document.getElementById("balance-inquiry-display").style.display = "none";
         document.getElementById("list-display").innerHTML = "";
