@@ -328,3 +328,15 @@ select {
 .accordion-item.active .accordion-content {
     display: block;
 }
+
+#messageContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgb(50, 205, 50);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 1rem;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}

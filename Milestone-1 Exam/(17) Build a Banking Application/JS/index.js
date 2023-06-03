@@ -78,7 +78,7 @@ function generateUser(userNo = 10) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const customerList = generateUser();
+    let customerList = generateUser();
     const dashboard = document.getElementById("dashboard");
     const controls = document.getElementById("controls");
     const grievance = document.getElementById("grievance");
@@ -112,6 +112,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     updatedDashboardInfo();
+
+    function displayMessage(message) {
+        const successContainer = document.getElementById("messageContainer");
+        successContainer.textContent = message;
+        successContainer.style.display = "block";
+
+        // Optional: Remove the message after a certain period (e.g., 3 seconds)
+        setTimeout(function () {
+            successContainer.textContent = "";
+            successContainer.style.display = "none";
+        }, 3000);
+    }
 
     const accordionItems = document.querySelectorAll('.accordion-item');
     accordionItems.forEach(item => {
@@ -211,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
             customerList.push(customer);
             onClickDisplay.style.zIndex = "-1";
             document.getElementById("add-customer-display").style.display = "none";
+            displayMessage("Added Customer");
             updatedDashboardInfo();
         });
     });
@@ -243,11 +256,19 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#customer-account-number>.input-group>input").value = "";
             document.getElementById("customer-info-display").style.display = "block";
             document.querySelector("#customer-info-display>input[value='Remove']").style.display = "inline";
-        }, { once: true});
+        }, { once: true });
 
-        document.querySelector("#customer-info-display>input[value='Remove']").addEventListener("click", function() {
-            console.log("Removed");
-        }, { once: true});
+        document.querySelector("#customer-info-display>input[value='Remove']").addEventListener("click", function () {
+            document.querySelector("#customer-info-display>input[value='Remove']").style.display = "none";
+            const accountNo = parseInt(document.getElementById("output-account-no").value);
+            customerList = customerList.filter((customer) => customer["account no"] !== accountNo);
+
+            onClickDisplay.style.zIndex = "-1";
+            document.getElementById("customer-info-display").style.display = "none";
+
+            displayMessage("Removed Customer");
+            updatedDashboardInfo();
+        }, { once: true });
     });
 
     showCustomer.addEventListener("click", function () {
@@ -278,9 +299,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#customer-account-number>.input-group>input").value = "";
             document.getElementById("customer-info-display").style.display = "block";
             document.querySelector("#customer-info-display>input[value='Edit']").style.display = "inline";
-        }, { once: true});
+        }, { once: true });
 
-        document.querySelector("#customer-info-display>input[value='Edit']").addEventListener("click", function() {
+        document.querySelector("#customer-info-display>input[value='Edit']").addEventListener("click", function () {
             document.getElementById("output-name").disabled = false;
             document.getElementById("output-address").disabled = false;
             document.getElementById("output-dob").disabled = false;
@@ -288,19 +309,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.querySelector("#customer-info-display>input[value='Edit']").style.display = "none";
             document.querySelector("#customer-info-display>input[value='Update']").style.display = "inline";
+        }, { once: true });
 
-            console.log("Edit");
-        }, { once: true});
-
-        document.querySelector("#customer-info-display>input[value='Update']").addEventListener("click", function() {
+        document.querySelector("#customer-info-display>input[value='Update']").addEventListener("click", function () {
             document.getElementById("output-name").disabled = true;
             document.getElementById("output-address").disabled = true;
             document.getElementById("output-dob").disabled = true;
             document.getElementById("output-phone-no").disabled = true;
             document.querySelector("#customer-info-display>input[value='Update']").style.display = "none";
+            onClickDisplay.style.zIndex = "-1";
+            document.getElementById("customer-info-display").style.display = "none";
 
-            console.log("Update");
-        }, { once: true});
+            const accountNo = parseInt(document.getElementById("output-account-no").value);
+            const desiredCustomer = customerList.find((customer) => customer["account no"] === accountNo);
+            desiredCustomer["name"] = document.getElementById("output-name").value;
+            desiredCustomer["address"] = document.getElementById("output-address").value;
+            desiredCustomer["dob"] = document.getElementById("output-dob").value;
+            desiredCustomer["phone no"] = document.getElementById("output-phone-no").value;
+
+            displayMessage("Customer Info Updated");
+        }, { once: true });
     });
 
     debitCredit.addEventListener("click", function () {
@@ -324,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("customer-account-number").style.display = "none";
             document.getElementById("debit-credit-display").style.display = "block";
             document.querySelector("#customer-account-number>.input-group>input").value = "";
-        }, { once: true});
+        }, { once: true });
 
         document.querySelector("#debit-credit-display>input[value='Credit']").addEventListener("click", function () {
             console.log(desiredCustomer);
@@ -385,7 +413,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector("#balance-inquiry-display>div:nth-child(1)").innerHTML = `<b>Name:</b> ${desiredCustomer["name"]}`;
             document.querySelector("#balance-inquiry-display>div:nth-child(2)").innerHTML = `<b>Account No:</b> ${desiredCustomer["account no"]}`;
             document.querySelector("#balance-inquiry-display>div:nth-child(3)").innerHTML = `<b>Balance:</b> ${desiredCustomer["balance"]}`;
-        }, { once: true});
+        }, { once: true });
     });
 
     transactionHistory.addEventListener("click", function () {
@@ -418,7 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             document.getElementById("list-display").innerHTML = "";
             document.getElementById("list-display").appendChild(list);
-        }, { once: true});
+        }, { once: true });
     });
 
     showCustomerList.addEventListener("click", function () {
@@ -473,5 +501,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("balance-inquiry-display").style.display = "none";
         document.getElementById("list-display").innerHTML = "";
         document.getElementById("list-display").style.display = "none";
+        document.querySelector("#customer-account-number>.input-group>input").value = "";
+        document.querySelector("#customer-account-number>.input-group>input").style.borderBottomColor = "rgb(0, 0, 0)";
     });
 });
