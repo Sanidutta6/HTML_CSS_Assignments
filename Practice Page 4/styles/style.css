@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: rgb(163, 208, 212);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    width: 80%;
+    height: 80%;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 3rem;
+    background-color: rgb(163, 208, 212);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left {
+    height: 100%;
+    width: 35%;
+    padding: 2rem;
+}
+
+.logo>img {
+    height: 2rem;
+    margin-bottom: 1.5rem;
+    filter: invert(1);
+}
+
+.left>p {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+}
+
+.abs-img {
+    height: 27rem;
+    width: 27rem;
+    transform: rotate(348deg);
+    position: relative;
+    left: 1rem;
+    margin-top: 1.5rem;
+}
+
+.right {
+    height: 100%;
+    width: 65%;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2.7rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.select-lang {
+    width: 100%;
+    text-align: right;
+    color: rgb(166, 166, 166);
+}
+
+.select-lang>img {
+    height: 0.9rem;
+    filter: hue-rotate(90deg);
+}
+
+.right>h2 {
+    width: 66%;
+    text-align: left;
+    font-size: 30px;
+}
+
+.sign-up-social {
+    width: 66%;
+    display: flex;
+    justify-content: left;
+    gap: 2rem;
+}
+
+.sign-up-with-google,
+.sign-up-with-facebook {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgb(166, 166, 166);
+    border-radius: 0.3rem;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sign-up-with-google>img,
+.sign-up-with-facebook>img {
+    height: 1rem;
+}
+
+.right>p:first-of-type {
+    font-size: 21px;
+    text-transform: uppercase;
+    color: rgb(166, 166, 166);
+}
+
+.right>form {
+    width: 66%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group>input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(166, 166, 166);
+    padding: 0.5rem 0.9rem;
+    font-size: 18px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0.3rem;
+    text-align: center;
+    background-color: rgb(90, 187, 194);
+    color: rgb(255, 255, 255);
+    margin-top: 1rem;
+    padding: 0.3rem 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.right>p:nth-of-type(2) {
+    width: 66%;
+    text-align: left;
+    color: rgb(166, 166, 166);
+}
+
+.right>p:nth-of-type(2)>span {
+    color: rgb(90, 187, 194);
+}
