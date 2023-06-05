@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="progress">
+                <div class="stepper-item completed">
+                    <div class="step-counter">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="step-name">Shipping</div>
+                </div>
+                <div class="stepper-item active">
+                    <div class="step-counter">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="step-name">Billing</div>
+                </div>
+                <div class="stepper-item">
+                    <div class="step-counter">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="step-name">Confirmation</div>
+                </div>
+            </div>
+            <div class="payment-method">
+                <h2>Payment Method</h2>
+                <form>
+                    <div class="input-group">
+                        <input type="radio" id="card" name="payment-type" value="card" checked />
+                        <label for="card"><img src="./assets/debit-card.png" alt="debit-card"></label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="radio" id="paypal" name="payment-type" value="paypal" />
+                        <label for="paypal"><img src="./assets/money.png" alt="paypal"></label>
+                    </div>
+                </form>
+            </div>
+            <div class="payment-details">
+                <h2>Payment Details</h2>
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" id="name" placeholder="Enter name on card" required />
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="card-number" placeholder="Card Number" maxlength="16" required />
+                    </div>
+                    <div class="input-group">
+                        <input type="month" id="expiration" name="expiration" min="2023-06" required>
+                        <input type="number" name="cvv" id="cvv" placeholder="CVV Code" maxlength="3" required />
+                    </div>
+                    <div class="input-group">
+                        <input type="checkbox" name="agree" id="agree" required />
+                        <span>By clicking "Confirm Payment", I agree<br /> to the company's terms of services.</span>
+                    </div>
+                    <div class="input-group">
+                        <input type="reset" id="back" value="Back" />
+                        <input type="submit" id="buy" value="Confirm Payment: $14.88" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <h3>Balance Control Oil Beam <br /> Moisturizer</h3>
+            <p>$14.88</p>
+            <img src="./assets/bottle.png" alt="Bottle">
+        </div>
+    </div>
+</body>
+
+</html>

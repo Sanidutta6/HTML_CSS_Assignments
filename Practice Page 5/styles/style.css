@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(113, 57, 173);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.left {
+    width: 60%;
+}
+
+.progress {
+    font-family: Arial;
+    margin-top: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    @media (max-width: 768px) {
+        font-size: 12px;
+    }
+}
+
+.stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #cccccc;
+    width: 100%;
+    top: 9px;
+    left: -50%;
+    z-index: 2;
+}
+
+.stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #cccccc;
+    width: 100%;
+    top: 9px;
+    left: 50%;
+    z-index: 2;
+}
+
+.stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    border: rgb(0, 0, 0);
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+    margin-bottom: 6px;
+}
+
+.stepper-item.active {
+    font-weight: bold;
+}
+
+.stepper-item.completed .step-counter {
+    border: 2px solid rgb(113, 57, 173);
+}
+
+.stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid rgb(113, 57, 173);
+    width: 100%;
+    top: 9px;
+    left: 50%;
+    z-index: 3;
+}
+
+.stepper-item:first-child::before {
+    content: none;
+}
+
+.stepper-item:last-child::after {
+    content: none;
+}
+
+.circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgb(113, 57, 173);
+}
+
+.payment-method {
+    margin-bottom: 2rem;
+}
+
+.payment-method>form {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.payment-method .input-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.payment-method label>img {
+    height: 3rem;
+}
+
+input[type="radio"]:checked {
+    accent-color: rgb(109, 69, 158);
+}
+
+.input-group>span {
+    font-size: 10px;
+    color: rgb(117,117,117);
+}
+
+.payment-details>h2 {
+    margin-bottom: 2rem;
+}
+
+.payment-details>form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.payment-details>form input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(170, 170, 170);
+}
+
+#name, #card-number {
+    width: 100%;
+}
+
+.payment-details>form .input-group:nth-of-type(3) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#expiration, #cvv {
+    width: 42%;
+}
+
+#back {
+    border: 1px solid rgb(113, 57, 173);
+    background-color: rgb(255, 255, 255);
+    padding: 0.5rem 2.5rem;
+    color: rgb(113, 57, 173);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#buy {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(113, 57, 173);
+    padding: 0.5rem 2.5rem;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.right {
+    /* width: 30%; */
+    background-color: rgb(242, 232, 249);
+    padding: 2rem 2rem 0 2rem;
+}
+
+.right>h3 {
+    font-size: 24px;
+    font-weight: 300;
+    color: rgb(109, 69, 158);
+}
+
+.right>p {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(109, 69, 158);
+}
+
+.right>img {
+    margin-top: 3rem;
+    height: 24rem;
+    position: relative;
+    left: -5rem;
+}
