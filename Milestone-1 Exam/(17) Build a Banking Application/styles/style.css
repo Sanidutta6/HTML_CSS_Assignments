@@ -241,20 +241,14 @@ h1 {
 }
 
 #grievance-view>form {
-    padding-left: 2rem;
+    width: 40%;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     border-radius: 0.9rem;
     background-color: rgb(0, 95, 120);
-}
-
-#grievance-view .input-group {
-    width: 30%;
-}
-
-#grievance-view .input-group>label {
-    display: block;
+    color: rgb(255, 255, 255);
 }
 
 #grievance-view .input-group>input[type="text"],
@@ -262,12 +256,28 @@ textarea,
 select {
     width: 100%;
     padding: 0.2rem 1rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    background-color: rgb(0, 95, 120);
+    color: rgb(255, 255, 255);
+}
+
+#grievance-view #consumer-id::placeholder,
+textarea::placeholder,
+select::placeholder {
+   color: rgb(201, 201, 201);
 }
 
 #grievance-view input[type="reset"],
 #grievance-view input[type="submit"] {
+    border: none;
+    border-radius: 0.3rem;
+    outline: none;
+    background-color: rgb(21,144,176);
     padding: 0.2rem 0.4rem;
-    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
     font-weight: 500;
 }
 

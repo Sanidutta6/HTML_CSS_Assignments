@@ -173,7 +173,8 @@
                                 </div>
                                 <div class="output-group">
                                     <label for="output-phone-no">Phone No.</label>
-                                    <input type="text" id="output-phone-no" placeholder="Enter Your Phone No." disabled />
+                                    <input type="text" id="output-phone-no" placeholder="Enter Your Phone No."
+                                        disabled />
                                 </div>
                                 <div class="output-group">
                                     <label for="output-DOO">Date of Opening</label>
@@ -217,16 +218,14 @@
             <div id="grievance-view">
                 <h1>Grievance</h1>
                 <form>
+                    <p>Existing Relation with MyBank?</p>
                     <div class="input-group">
-                        <p>Existing Relation with MyBank?</p>
-                        <label>
-                            <input type="radio" name="option" value="yes" checked />
-                            Yes
-                        </label>
-                        <label>
-                            <input type="radio" name="option" value="no" />
-                            No
-                        </label>
+                        <input type="radio" name="option" id="existing-yes" value="yes" checked />
+                        <label for="existing-yes">Yes</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="option" id="existing-no" value="no" />
+                        <label for="existing-no">No</label>
                     </div>
                     <div class="input-group">
                         <label for="consumer-id">Consumer ID</label>
