@@ -1369,6 +1369,132 @@ In this example, the `greet` variable is assigned a function expression that tak
 
 Function expressions are powerful tools in JavaScript, as they allow for more dynamic and flexible coding patterns. They enable functions to be treated as values and used in various scenarios, such as callbacks, event handlers, and object methods.
 
+## Immediately invoked function expression
+**Definition:**
+An Immediately Invoked Function Expression (IIFE) is a JavaScript design pattern that involves defining and immediately executing a function. It allows for the creation of a private scope, enabling encapsulation of variables and avoiding global namespace pollution. 
+
+**Description:**
+An IIFE is formed by wrapping a function expression inside parentheses `( )` and immediately invoking it by adding an additional pair of parentheses `()`. This pattern is commonly used to create a self-contained block of code that executes immediately, isolating variables and functions within its own scope.
+
+The primary purpose of using an IIFE is to avoid conflicts with other scripts and to create a private scope for variables and functions. By defining variables and functions within the IIFE, they are not accessible outside of it, minimizing the chances of naming collisions and keeping the global scope clean.
+
+**Syntax:**
+The basic syntax of an IIFE is as follows:
+```javascript
+(function() {
+  // Code goes here
+})();
+```
+
+The function is defined and enclosed within parentheses `( )`. The final pair of parentheses `()` immediately invokes the function. Any code inside the function will execute immediately.
+
+**Example:**
+```javascript
+(function() {
+  var name = "John";
+  console.log("Hello, " + name);
+})();
+```
+
+In this example, an IIFE is used to create a private scope. The variable `name` is defined inside the IIFE and is not accessible from outside. The code inside the IIFE immediately executes and logs "Hello, John" to the console.
+
+IIFEs can also accept arguments if needed:
+```javascript
+(function(message) {
+  console.log(message);
+})("Hello, World!");
+```
+
+In this case, an argument `message` is passed to the IIFE, and it immediately logs the provided message to the console.
+
+The use of an IIFE provides encapsulation, allowing for the creation of private variables and functions. It prevents variables from polluting the global scope and avoids conflicts with other scripts. IIFEs are commonly used in libraries, frameworks, and modules to create self-contained blocks of code.
+
+## High Order Function
+**Definition:**
+In JavaScript, a higher-order function is a function that accepts one or more functions as arguments and/or returns a function as its result. Higher-order functions enable functional programming paradigms and allow for the composition and manipulation of functions.
+
+**Description:**
+In JavaScript, functions are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions. Higher-order functions leverage this feature by accepting functions as arguments or returning functions as results.
+
+There are two main types of higher-order functions:
+
+1. **Functions that accept functions as arguments:**
+   Higher-order functions can receive other functions as parameters. These functions are often referred to as "callback functions" or "transformer functions." The higher-order function can invoke the provided callback function at a specific point or multiple times during its execution. The callback function allows for custom behavior to be defined by the caller of the higher-order function.
+
+2. **Functions that return functions:**
+   Higher-order functions can also create and return new functions. These functions are often called "factory functions" or "decorators." The returned function can have access to the variables and arguments of the enclosing higher-order function. This allows for the creation of specialized functions with pre-configured behavior or additional capabilities.
+
+Higher-order functions are powerful tools for writing concise and reusable code. They promote functional programming concepts such as abstraction, modularity, and composability.
+
+**Example:**
+```javascript
+function multiplyBy(factor) {
+  return function(number) {
+    return number * factor;
+  };
+}
+
+const double = multiplyBy(2);
+console.log(double(5)); // Output: 10
+
+const triple = multiplyBy(3);
+console.log(triple(5)); // Output: 15
+```
+
+In this example, the `multiplyBy` function is a higher-order function that returns a new function. It takes a `factor` argument and returns a function that multiplies its argument by the provided `factor`.
+
+The `multiplyBy` function is invoked twice to create two specialized functions: `double` and `triple`. These functions are pre-configured with the desired multiplication factor. When called with an argument, they multiply the argument by the corresponding factor.
+
+The higher-order function `multiplyBy` demonstrates the creation and return of a new function, allowing for code reusability and flexibility.
+
+Higher-order functions are widely used in JavaScript libraries and frameworks, enabling the composition of functions and the implementation of advanced patterns such as currying, function chaining, and asynchronous control flow. They enhance code modularity, readability, and maintainability by enabling the separation of concerns and the reuse of functions in various contexts.
+
+## Import & Export
+
+**Import and Export:**
+The import and export syntax is a feature introduced in ECMAScript 6 (ES6) to facilitate modular code organization and reuse in JavaScript. It allows you to import functionality from other modules and export functionality to be used by other modules.
+
+**Export:**
+The export statement is used to export functionality from a module, making it available for use by other modules.
+
+**Syntax (Export):**
+There are multiple ways to use the export statement:
+
+1. **Named Exports:**
+
+```javascript
+// Exporting individual named functions, variables, or constants
+export const variableName = value;
+export function functionName() {
+  // Function body
+}
+export class ClassName {
+  // Class definition
+}
+
+// Exporting multiple named functions, variables, or constants
+export { variable1, variable2, ... };
+```
+
+In the examples above, the `export` keyword is used to export individual functions, variables, constants, or entire objects/classes. The exported items can then be imported by other modules using their respective names.
+
+2. **Default Exports:**
+
+```javascript
+// Exporting a single default function, variable, or class
+export default expression;
+
+// Exporting a default function, variable, or class directly
+export default function() {
+  // Function body
+}
+export default class {
+  // Class definition
+}
+```
+
+In this case, the `export default` syntax is used to export a single default item from the module. This default export can be imported without using curly braces in the importing module.
+
 **Import:**
 The import statement is used to import functionality from other modules into the current module.
 
