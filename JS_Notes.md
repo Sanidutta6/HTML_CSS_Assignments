@@ -58,6 +58,46 @@ JavaScript can interact with the Document Object Model (DOM) to manipulate the c
 
 These are just the basics of JavaScript. JavaScript is a powerful and versatile programming language used for developing interactive websites, web applications, server-side applications, and more. It has a wide range of features and capabilities that can be explored and utilized as you progress in your JavaScript journey.
 
+## Execution Context
+
+**Definition:**
+Execution context refers to the environment in which a piece of code is executed. It includes information such as the value of variables, the scope chain, the value of `this`, and the context in which the code is running. Understanding execution context is crucial for understanding how JavaScript code is executed.
+
+**Description:**
+In JavaScript, code is executed within an execution context, which consists of two main components: the variable environment and the lexical environment. These environments hold the variables, functions, and other entities defined in the code.
+
+The variable environment contains all the declared variables and their values, as well as function declarations. It also includes variables defined within the current scope and the variables accessible through the scope chain.
+
+The lexical environment, also known as the scope, defines the accessibility and visibility of variables and functions within nested scopes. It determines how variables are looked up during execution based on the order in which they are defined.
+
+There are three types of execution contexts in JavaScript:
+
+1. Global Execution Context: It is the default context that exists from the beginning of the program. It includes variables and functions defined globally, such as those defined outside any functions or blocks. The global execution context is the outermost context.
+
+2. Function Execution Context: Each time a function is invoked, a new function execution context is created. It includes variables and function parameters specific to that function invocation. It also has access to variables from the outer scopes through the scope chain.
+
+3. Eval Execution Context: The eval function in JavaScript creates a new execution context for evaluating code dynamically. It is less commonly used and has its own variable environment and scope.
+
+The execution context stack, known as the call stack or execution stack, keeps track of the active execution contexts. When a function is called, a new execution context is pushed onto the stack, and when the function completes, the context is popped off the stack.
+
+The concept of execution context is fundamental to understand how JavaScript code is executed, how variables and functions are accessed, and how scope works. It plays a crucial role in determining the behavior of the code and the values of variables at runtime.
+
+**Example:**
+```javascript
+let name = "John"; // Global variable
+
+function sayHello() {
+  let message = "Hello, " + name; // Variable in function scope
+  console.log(message);
+}
+
+sayHello(); // Output: Hello, John
+```
+
+In this example, there are two execution contexts. The global execution context contains the `name` variable. When the `sayHello` function is called, a new function execution context is created. The function execution context has its own scope with the `message` variable, and it also has access to the `name` variable from the outer global scope.
+
+Understanding the execution context helps you reason about how JavaScript code behaves and how variables are accessed and modified within different scopes. It is an important concept for writing efficient and correct JavaScript code.
+
 ## DOM
 
 **Definition:**
@@ -1238,6 +1278,96 @@ export default class {
 ```
 
 In this case, the `export default` syntax is used to export a single default item from the module. This default export can be imported without using curly braces in the importing module.
+
+## Callback
+**Definition:**
+A callback is a function that is passed as an argument to another function and is executed at a later point in time. It allows for asynchronous programming and enables functions to be executed when a specific event or condition occurs.
+
+**Description:**
+In JavaScript, functions are first-class objects, which means they can be assigned to variables, passed as arguments to other functions, and returned from functions. This enables the use of callbacks as a powerful mechanism for handling asynchronous operations, event handling, and controlling program flow.
+
+Callbacks are commonly used in scenarios where a function needs to wait for an asynchronous task to complete, such as reading a file, making an HTTP request, or executing a database query. Instead of blocking the execution until the task is finished, the function accepts a callback function as an argument. Once the asynchronous task is complete, the callback function is invoked, allowing the program to continue.
+
+Callbacks can be synchronous or asynchronous. Synchronous callbacks are executed immediately within the same execution context. Asynchronous callbacks are typically executed later, once a specific event or condition occurs, such as a network response being received or a timer expiring.
+
+Callback functions can be defined inline as anonymous functions or passed as references to named functions.
+
+**Example:**
+```javascript
+function fetchData(url, callback) {
+  // Simulating an asynchronous operation
+  setTimeout(() => {
+    const data = { id: 1, name: "John Doe" };
+    callback(data);
+  }, 2000);
+}
+
+function processResponse(response) {
+  console.log("Received response:", response);
+}
+
+fetchData("https://api.example.com/data", processResponse);
+```
+
+In this example, the `fetchData` function performs an asynchronous task of fetching data from a URL. It takes a `url` parameter and a `callback` parameter. After a simulated delay of 2 seconds using `setTimeout`, it invokes the `callback` function with the fetched data.
+
+The `processResponse` function is defined separately and passed as the callback to `fetchData`. Once the data is fetched, the `processResponse` function is called with the fetched data as its argument, and it logs the received response to the console.
+
+The use of a callback allows the program to continue execution without waiting for the asynchronous task to complete. Once the data is fetched, the callback function is executed, allowing further processing of the received data.
+
+Callbacks are fundamental to asynchronous programming in JavaScript and are widely used in frameworks, libraries, and APIs to handle events, perform asynchronous tasks, and control program flow. They provide a flexible and powerful mechanism for handling operations that involve waiting for external events or asynchronous responses.
+
+## Function Expression
+**Definition:**
+A function expression is a way to define a function in JavaScript by assigning it to a variable or a property of an object. It allows functions to be treated as first-class objects, enabling them to be passed as arguments, returned from other functions, and assigned to variables.
+
+**Description:**
+In JavaScript, functions can be defined using two main syntaxes: function declarations and function expressions. While function declarations define a named function using the `function` keyword, function expressions assign an anonymous function to a variable or a property.
+
+Function expressions are useful when you need to create functions on the fly, define callback functions, or create functions as values for object properties. They provide flexibility and allow for more dynamic and flexible coding patterns.
+
+**Syntax:**
+There are a few different ways to write function expressions in JavaScript:
+
+1. Anonymous Function Expression:
+```javascript
+const myFunction = function() {
+  // Function body
+};
+```
+
+In this example, an anonymous function is assigned to the `myFunction` variable. The function can be invoked later using the variable name.
+
+2. Named Function Expression:
+```javascript
+const myFunction = function functionName() {
+  // Function body
+};
+```
+
+In this case, the function expression has a name (`functionName`). The name can be used within the function to refer to itself (for recursion or debugging purposes).
+
+3. Immediately Invoked Function Expression (IIFE):
+```javascript
+(function() {
+  // Function body
+})();
+```
+
+This syntax immediately invokes the function expression after its definition. It is often used to create a private scope and avoid polluting the global namespace.
+
+**Example:**
+```javascript
+const greet = function(name) {
+  console.log(`Hello, ${name}!`);
+};
+
+greet("John"); // Output: Hello, John!
+```
+
+In this example, the `greet` variable is assigned a function expression that takes a `name` parameter and logs a greeting message to the console. The function is then invoked by passing the argument `"John"`.
+
+Function expressions are powerful tools in JavaScript, as they allow for more dynamic and flexible coding patterns. They enable functions to be treated as values and used in various scenarios, such as callbacks, event handlers, and object methods.
 
 **Import:**
 The import statement is used to import functionality from other modules into the current module.
