@@ -7,7 +7,11 @@ const ShowTodo = () => {
 
     const updateTodoStatus = (todoNo) => {
         const updatedTodos = [...todos];
-        updatedTodos[todoNo - 1].status = "Completed";
+        if (updatedTodos[todoNo - 1].status === "Completed") {
+            updatedTodos[todoNo - 1].status = "Pending"
+        } else {
+            updatedTodos[todoNo - 1].status = "Completed"
+        }
         setTodos(updatedTodos);
         localStorage.setItem("ReactTODOs", JSON.stringify([...updatedTodos]));
     }
