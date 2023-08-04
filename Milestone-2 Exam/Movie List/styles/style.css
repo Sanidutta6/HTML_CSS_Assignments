@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    background-color: #0D0529;
+    color: #fff;
+}
+
+.navbar {
+    padding: 24px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.navbar h1 {
+    font-size: 42px;
+    font-weight: 500;
+}
+
+.navbar input {
+    width: 36%;
+    padding: 4px 12px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 300;
+    color: black;
+}
+
+.navbar>input::placeholder {
+    color: black;
+}
+
+.movie-list {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.card {
+    min-width: 300px;
+    background-color: #2E2F65;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+    height: 240px;
+    border-radius: 8px;
+}
+
+.card-title {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 27px;
+}
+
+.card-read-more {
+    margin-top: 8px;
+    padding: 4px 0px;
+    text-align: center;
+    background-color: #FF004F;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-read-more:hover {
+    text-decoration: underline;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.modal-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2E2F65;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modal-close {
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    transform: scale(1.5);
+}
+
+.modal-body {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.poster {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poster img {
+    object-fit: cover;
+    /* width: 100%; */
+    height: 300px;
+    border-radius: 8px;
+}
+
+.details {
+    flex: 2;
+    padding: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin: 0;
+}
+
+.info {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.plot {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.plot-text {
+    font-style: italic;
+}
+
+.imdb-rating {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f39c12;
+}

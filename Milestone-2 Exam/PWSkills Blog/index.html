@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWSkills Blog</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <!-- Blog Name -->
+        <h1 class="blog-name">PWSkills Blog</h1>
+        <!-- Blog Items -->
+        <div class="blog-items">
+            <ul>
+                <li>
+                    <div class="add-blog-post" id="add-blog-post">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 448 512">
+                            <style>
+                                svg {
+                                    fill: #000000
+                                }
+                            </style>
+                            <path
+                                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                        </svg>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Body -->
+    <main class="main">
+        <div class="card-list" id="card-list"></div>
+
+        <!-- Modal -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Blog Post</h3>
+                    <span class="modal-close" id="modal-close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="modal-input" placeholder="Enter Blog title" id="blog-title" required />
+                    <input type="text" class="modal-input" placeholder="Enter Blog Description" id="blog-desc" required />
+                    <input type="text" class="modal-input" placeholder="Enter Blog Image URL" id="blog-img-url" required />
+                    <textarea class="modal-input" rows="9" placeholder="Enter Blog content"
+                        id="blog-content" required></textarea>
+                    <button class="modal-save" id="modal-save">Add Blog</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
